@@ -1,0 +1,52 @@
+name: QJ_CustomItems
+version: 1.1.0
+main: fr.qjwin.qj_customitems.Main
+api-version: 1.16
+authors: [ QJWIN ]
+description: Personal plugin for items with specials effects
+commands:
+  Give_GrapplingHook:
+    description: give a grappling hook to the player.
+    usage: /<command>
+  Give_TeleportSword:
+    description: give a teleport sword to the player.
+    usage: /<command>
+  Give_ServerGift:
+    description: give a admin surprise to the player.
+    usage: /<command>
+  Give_ExplosiveBow:
+    description: give a explosive bow to the player.
+    usage: /<command>
+  Give_InfiniteWaterBucket:
+    description: give a infinite waterbucket to the player.
+    usage: /<command>
+  Give_InfiniteLavaBucket:
+    description: give a infinite lavabucket to the player.
+    usage: /<command>
+  Give_MachineGunBow:
+    description: give a machine gun bow to the player.
+    usage: /<command>
+  Give_MultiBreakPickaxe:
+    description: give a multiBreak pickaxe to the player.
+    usage: /<command>
+  Give_CresusPickaxe:
+    description: give a cresus pickaxe to the player.
+    usage: /<command>
+  Give_Boomerang:
+    description: give a Boomerang to the player.
+    usage: /<command>
+  Give_HomingBow:
+    description: give a HomingBow to the player.
+    usage: /<command>
+  Give_ThrowingAxe:
+    description: give a ThrowingAxe to the player.
+    usage: /<command>
+  Give_UndeadSword:
+    description: give a UndeadSword to the player.
+    usage: /<command>
+  Give_Dynamite:
+    description: give a Dynamite to the player.
+    usage: /<command>
+  Give_All:
+    description: give all items to the player.
+    usage: /<command>
