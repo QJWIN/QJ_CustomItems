@@ -5,6 +5,10 @@ import fr.qjwin.qj_customitems.Listener.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static org.bukkit.ChatColor.COLOR_CHAR;
 
 public final class Main extends JavaPlugin {
 
@@ -33,6 +37,7 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("Give_UndeadSword")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Dynamite")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_LightingSword")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_AutoSmeltPickaxe")).setExecutor(new GiveCommand());
         getServer().getLogger().info("QJ_CustomItems >>> initialize commands 15/15 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ItemsEvents(), this);
@@ -65,4 +70,5 @@ public final class Main extends JavaPlugin {
     public void onDisable() {
         getServer().getLogger().info("QJ_CustomItems >>> plugin disabled correctly");
     }
+
 }

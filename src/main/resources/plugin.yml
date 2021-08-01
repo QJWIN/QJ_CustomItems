@@ -50,7 +50,11 @@ commands:
   Give_LightingSword:
     description: give a LightingSword to the player.
     usage: /<command>
+  Give_AutoSmeltPickaxe:
+    description: give a AutoSmeltPickaxe to the player.
+    usage: /<command>
   Give_All:
     description: give all items to the player.
     usage: /<command>
+
 

@@ -70,6 +70,9 @@ public class GiveCommand implements CommandExecutor {
             if (cmd.getName().equalsIgnoreCase("Give_LightingSword")){
                 player_instance.getInventory().addItem(ItemsManager.LightingSword);
             }
+            if (cmd.getName().equalsIgnoreCase("Give_AutoSmeltPickaxe")){
+                player_instance.getInventory().addItem(ItemsManager.AutoSmeltPickaxe);
+            }
             if (cmd.getName().equalsIgnoreCase("Give_All")){
                 player_instance.getInventory().addItem(ItemsManager.GrapplingHook);
                 player_instance.getInventory().addItem(ItemsManager.TeleportSword);
@@ -86,6 +89,7 @@ public class GiveCommand implements CommandExecutor {
                 player_instance.getInventory().addItem(ItemsManager.UndeadSword);
                 player_instance.getInventory().addItem(ItemsManager.Dynamite);
                 player_instance.getInventory().addItem(ItemsManager.LightingSword);
+                player_instance.getInventory().addItem(ItemsManager.AutoSmeltPickaxe);
             }
         } else {
             sender.sendMessage("You are not allowed to use this command ! Only opérator can do this !");

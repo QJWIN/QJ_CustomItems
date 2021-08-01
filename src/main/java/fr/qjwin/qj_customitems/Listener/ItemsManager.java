@@ -5,6 +5,7 @@ Made by : QJWIN
 */
 package fr.qjwin.qj_customitems.Listener;
 
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -37,6 +38,7 @@ public class ItemsManager {
     public static ItemStack UndeadSword;
     public static ItemStack Dynamite;
     public static ItemStack LightingSword;
+    public static ItemStack AutoSmeltPickaxe;
 
     public static void init (){
         CreateGrapplingHook();
@@ -54,6 +56,7 @@ public class ItemsManager {
         CreateUndeadSword();
         CreateDynamite();
         CreateLightingSword();
+        CreateAutoSmeltPickaxe();
     }
 
     private static void CreateGrapplingHook(){
@@ -285,13 +288,22 @@ public class ItemsManager {
     }
 
     private static void CreateDynamite() {
-        ItemStack Dynamite_Stack = new ItemStack(Material.TNT, 1);
+        ItemStack Dynamite_Stack = new ItemStack(Material.IRON_INGOT, 1);
         ItemMeta Dynamite_Meta = Dynamite_Stack.getItemMeta();
-        Objects.requireNonNull(Dynamite_Meta).setDisplayName("§6Dynamite");
+        Objects.requireNonNull(Dynamite_Meta).setDisplayName("§c★ §6Dynamite §c★");
         List<String> Dynamite_Lore = new ArrayList<>();
-        Dynamite_Lore.add("§bExplosif à base de nitroglycérine");
-        Dynamite_Lore.add("§btrès puissant !");
-        Dynamite_Lore.add("§c§kH§r §6ID §c§kH§r §6: §fTD_01");
+        Dynamite_Lore.add(ChatColor.of("#3399ff") + "§m--------------------------------");
+        Dynamite_Lore.add(ChatColor.of("#009933") + "Description :");
+        Dynamite_Lore.add("§fExplosif à base de nitroglycérine");
+        Dynamite_Lore.add("§ftrès puissant !");
+        Dynamite_Lore.add(ChatColor.of("#3399ff") + "§m--------------------------------");
+        Dynamite_Lore.add(ChatColor.of("#009933") + "Qualité : §6✦✦§8✦✦✦ " + ChatColor.of("#0070dd") + "Rare");
+        Dynamite_Lore.add(ChatColor.of("#009933") + "Pouvoir : §cExplosif lançable");
+        Dynamite_Lore.add(ChatColor.of("#009933") + "Effet -> §fClique §adroit §f:");
+        Dynamite_Lore.add("§fLance un explosif à 30 mètres");
+        Dynamite_Lore.add("§fde distance.");
+        Dynamite_Lore.add(ChatColor.of("#3399ff") + "§m--------------------------------");
+        Dynamite_Lore.add(ChatColor.of("#009933") + "ID : §fTD_01");
         Dynamite_Meta.setLore(Dynamite_Lore);
         Dynamite_Meta.setCustomModelData(7);
         Dynamite_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
@@ -303,19 +315,59 @@ public class ItemsManager {
     private static void CreateLightingSword() {
         ItemStack LightingSword_Stack = new ItemStack(Material.DIAMOND_SWORD, 1);
         ItemMeta LightingSword_Meta = LightingSword_Stack.getItemMeta();
-        Objects.requireNonNull(LightingSword_Meta).setDisplayName("§6Epée de Zeus");
+        Objects.requireNonNull(LightingSword_Meta).setDisplayName("§c★ §6Epée de Zeus §c★");
         List<String> LightingSword_Lore = new ArrayList<>();
-        LightingSword_Lore.add("§bLance un éclaire quand une");
-        LightingSword_Lore.add("§bcible est touchée.");
-        LightingSword_Lore.add("§bClique §adroit §bpour activé");
-        LightingSword_Lore.add("§bl'effet : §eColère de Zeus");
-        LightingSword_Lore.add("§c§kH§r §6ID §c§kH§r §6: §fLS_01");
+        LightingSword_Lore.add(ChatColor.of("#3399ff") + "§m--------------------------------");
+        LightingSword_Lore.add(ChatColor.of("#009933") + "Description :");
+        LightingSword_Lore.add("§fLance un éclaire quand une");
+        LightingSword_Lore.add("§fcible est touchée.");
+        LightingSword_Lore.add(ChatColor.of("#3399ff") + "§m--------------------------------");
+        LightingSword_Lore.add(ChatColor.of("#009933") + "Qualité : §6✦✦✦§8✦✦ " + ChatColor.of("#a335ee") + "Epique");
+        LightingSword_Lore.add(ChatColor.of("#009933") + "Pouvoir : §cColère de Zeus");
+        LightingSword_Lore.add(ChatColor.of("#009933") + "Effet -> §fClique §agauche §f:");
+        LightingSword_Lore.add("§fLance un éclaire sur la cible hit.");
+        LightingSword_Lore.add(ChatColor.of("#009933") + "Effet -> §fClique §adroit §f:");
+        LightingSword_Lore.add("§fLance un éclaire sur toutes les");
+        LightingSword_Lore.add("§fentitées dans un rayon de 12 blocs.");
+        LightingSword_Lore.add(ChatColor.of("#009933") + "Caractéristique :");
+        LightingSword_Lore.add("§e+7 de points d'attaque.");
+        LightingSword_Lore.add("§e+1.6 de vitesse d'attaque.");
+        LightingSword_Lore.add("§e+10 de dommages d'attaque en hit.");
+        LightingSword_Lore.add("§e+6 de dommages d'attaque en AOE.");
+        LightingSword_Lore.add(ChatColor.of("#3399ff") + "§m--------------------------------");
+        LightingSword_Lore.add(ChatColor.of("#009933") + "ID : §fLS_01");
         LightingSword_Meta.setLore(LightingSword_Lore);
         LightingSword_Meta.setCustomModelData(69);
         LightingSword_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
         LightingSword_Meta.addItemFlags(HIDE_ENCHANTS);
+        LightingSword_Meta.addItemFlags(HIDE_ATTRIBUTES);
         LightingSword_Stack.setItemMeta(LightingSword_Meta);
         LightingSword = LightingSword_Stack;
+    }
+
+    private static void CreateAutoSmeltPickaxe() {
+        ItemStack AutoSmeltPickaxe_Stack = new ItemStack(Material.DIAMOND_PICKAXE, 1);
+        ItemMeta AutoSmeltPickaxe_Meta = AutoSmeltPickaxe_Stack.getItemMeta();
+        Objects.requireNonNull(AutoSmeltPickaxe_Meta).setDisplayName("§c★ §6Pioche automatique §c★");
+        List<String> AutoSmeltPickaxe_Lore = new ArrayList<>();
+        AutoSmeltPickaxe_Lore.add(ChatColor.of("#3399ff") + "§m--------------------------------");
+        AutoSmeltPickaxe_Lore.add(ChatColor.of("#009933") + "Description :");
+        AutoSmeltPickaxe_Lore.add("§fTransforme les minerais en lingots.");
+        AutoSmeltPickaxe_Lore.add(ChatColor.of("#3399ff") + "§m--------------------------------");
+        AutoSmeltPickaxe_Lore.add(ChatColor.of("#009933") + "Qualité : §6✦✦§8✦✦✦ " + ChatColor.of("#0070dd") + "Rare");
+        AutoSmeltPickaxe_Lore.add(ChatColor.of("#009933") + "Pouvoir : §cReflux d'alchimie");
+        AutoSmeltPickaxe_Lore.add(ChatColor.of("#009933") + "Caractéristique :");
+        AutoSmeltPickaxe_Lore.add("§e+5 de points d'attaque.");
+        AutoSmeltPickaxe_Lore.add("§e+1.2 de vitesse d'attaque.");
+        AutoSmeltPickaxe_Lore.add(ChatColor.of("#3399ff") + "§m--------------------------------");
+        AutoSmeltPickaxe_Lore.add(ChatColor.of("#009933") + "ID : §fAP_01");
+        AutoSmeltPickaxe_Meta.setLore(AutoSmeltPickaxe_Lore);
+        AutoSmeltPickaxe_Meta.setCustomModelData(4);
+        AutoSmeltPickaxe_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        AutoSmeltPickaxe_Meta.addItemFlags(HIDE_ENCHANTS);
+        AutoSmeltPickaxe_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        AutoSmeltPickaxe_Stack.setItemMeta(AutoSmeltPickaxe_Meta);
+        AutoSmeltPickaxe = AutoSmeltPickaxe_Stack;
     }
 
 

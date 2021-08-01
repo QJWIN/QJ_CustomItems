@@ -5,6 +5,7 @@ Made by : QJWIN
 */
 package fr.qjwin.qj_customitems.Listener;
 
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -23,7 +24,7 @@ public class LightingSwordEvent implements Listener {
         if (eventArray.getDamager() instanceof Player && eventArray.getEntity() instanceof LivingEntity) {
             Player player = (Player) eventArray.getDamager();
             LivingEntity livingEntity = (LivingEntity) eventArray.getEntity();
-            if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getLore()).contains("§c§kH§r §6ID §c§kH§r §6: §fLS_01")) {
+            if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(ChatColor.of("#009933") + "ID : §fLS_01")) {
                 player.getWorld().strikeLightningEffect(eventArray.getEntity().getLocation());
                 double damage = 10;
                 livingEntity.damage(damage);
@@ -35,7 +36,7 @@ public class LightingSwordEvent implements Listener {
     public void onInteract(PlayerInteractEvent eventArray) {
 
         if(eventArray.getAction().equals(Action.RIGHT_CLICK_AIR) || eventArray.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-            if(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null &&Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains("§c§kH§r §6ID §c§kH§r §6: §fLS_01")) {
+            if(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null &&Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(ChatColor.of("#009933") + "ID : §fLS_01")) {
                 for(Entity entity : eventArray.getPlayer().getNearbyEntities(12,12,12)) {
                     if (entity instanceof LivingEntity) {
                         LivingEntity livingEntity = (LivingEntity) entity;
