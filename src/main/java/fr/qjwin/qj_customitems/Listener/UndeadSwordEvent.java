@@ -24,9 +24,7 @@ public class UndeadSwordEvent implements Listener {
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent eventArray) {
         Player player = (Player) eventArray.getDamager();
-
         if(player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta() .getLore() != null && Objects.requireNonNull(Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta() ).getLore()).contains("§c§kH§r §6ID §c§kH§r §6: §fUS_01")) {
-
             if(eventArray.getEntity() instanceof Zombie) {
                 int zombieMultiplier = plugin.getConfig().getInt("undeadsword.damagemultiplier.zombie");
                 eventArray.setDamage(eventArray.getDamage() + (eventArray.getDamage() * zombieMultiplier / 100));
@@ -34,11 +32,6 @@ public class UndeadSwordEvent implements Listener {
                 int skeletonMultiplier = plugin.getConfig().getInt("undeadsword.damagemultiplier.skeleton");
                 eventArray.setDamage(eventArray.getDamage() + (eventArray.getDamage() * skeletonMultiplier / 100));
             }
-            player.sendMessage(String.valueOf(eventArray.getDamage()));
-
         }
-        player.sendMessage(String.valueOf(eventArray.getDamage()));
     }
-
-
 }

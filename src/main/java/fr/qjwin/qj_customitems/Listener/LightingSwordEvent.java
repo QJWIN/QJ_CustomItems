@@ -25,7 +25,7 @@ public class LightingSwordEvent implements Listener {
             LivingEntity livingEntity = (LivingEntity) eventArray.getEntity();
             if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getLore()).contains("§c§kH§r §6ID §c§kH§r §6: §fLS_01")) {
                 player.getWorld().strikeLightningEffect(eventArray.getEntity().getLocation());
-                double damage = 20;
+                double damage = 10;
                 livingEntity.damage(damage);
             }
         }
@@ -36,13 +36,11 @@ public class LightingSwordEvent implements Listener {
 
         if(eventArray.getAction().equals(Action.RIGHT_CLICK_AIR) || eventArray.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             if(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null &&Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains("§c§kH§r §6ID §c§kH§r §6: §fLS_01")) {
-
                 for(Entity entity : eventArray.getPlayer().getNearbyEntities(12,12,12)) {
-
                     if (entity instanceof LivingEntity) {
                         LivingEntity livingEntity = (LivingEntity) entity;
                         livingEntity.getWorld().strikeLightningEffect(livingEntity.getLocation());
-                        double damage = 10;
+                        double damage = 6;
                         livingEntity.damage(damage);
                     }
                 }
