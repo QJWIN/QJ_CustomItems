@@ -51,7 +51,8 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UndeadSwordEvent(this), this);
         getServer().getPluginManager().registerEvents(new DynamiteEvent(), this);
         getServer().getPluginManager().registerEvents(new LightingSwordEvent(), this);
-        getServer().getLogger().info("QJ_CustomItems >>> initialize events 14/14 ==> OK");
+        getServer().getPluginManager().registerEvents(new AutoSmeltPickaxeEvent(), this);
+        getServer().getLogger().info("QJ_CustomItems >>> initialize events 15/15 ==> OK");
 
         Cooldown.setupCooldown_grappling();
         Cooldown.setupCooldown_teleportsword();

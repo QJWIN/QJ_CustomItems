@@ -252,8 +252,8 @@ public class ItemsManager {
         MachineGunBow_Lore.add(Title_Color + "Qualité : " + Rarity_Legendary);
         MachineGunBow_Lore.add(Title_Color + "Pouvoir : §cFlèches à répétition");
         MachineGunBow_Lore.add(Title_Color + "Effet -> §fClique §agauche §f:");
-        MachineGunBow_Lore.add("§bTire 5 flèches par secondes");
-        MachineGunBow_Lore.add("§bpendant 5 secondes !");
+        MachineGunBow_Lore.add("§fTire §a5 §fflèches par secondes");
+        MachineGunBow_Lore.add("§fpendant §a5 §fsecondes !");
         MachineGunBow_Lore.add(Separator_Color + "§m--------------------------------");
         MachineGunBow_Lore.add(Title_Color + "ID : §fMB_01");
         MachineGunBow_Meta.setLore(MachineGunBow_Lore);
