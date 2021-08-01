@@ -53,6 +53,9 @@ commands:
   Give_AutoSmeltPickaxe:
     description: give a AutoSmeltPickaxe to the player.
     usage: /<command>
+  Give_FireBall:
+    description: give a FireBall to the player.
+    usage: /<command>
   Give_All:
     description: give all items to the player.
     usage: /<command>

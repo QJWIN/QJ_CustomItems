@@ -25,23 +25,18 @@ public class ItemsManager {
 
     public static ChatColor Title_Color = ChatColor.of("#009933");
     public static ChatColor Separator_Color = ChatColor.of("#3399ff");
-
     public static String Rarity_name_Commun = ChatColor.of("#1eff00") + "Commun";
     public static String Rarity_level_Commun = "§6✦§8✦✦✦✦ ";
     public static String Rarity_Commun = Rarity_level_Commun + Rarity_name_Commun;
-
     public static String Rarity_name_Rare = ChatColor.of("#0070dd") + "Rare";
     public static String Rarity_level_Rare = "§6✦✦§8✦✦✦ ";
     public static String Rarity_Rare = Rarity_level_Rare + Rarity_name_Rare;
-
     public static String Rarity_name_Epic = ChatColor.of("#a335ee") + "Epique";
     public static String Rarity_level_Epic = "§6✦✦✦§8✦✦ ";
     public static String Rarity_Epic = Rarity_level_Epic + Rarity_name_Epic;
-
     public static String Rarity_name_Legendary = ChatColor.of("#ff8000") + "Légendaire";
     public static String Rarity_level_Legendary = "§6✦✦✦✦§8✦ ";
     public static String Rarity_Legendary = Rarity_level_Legendary + Rarity_name_Legendary;
-
     public static String Rarity_name_Artefact = ChatColor.of("#e6cc80") + "Artéfact";
     public static String Rarity_level_Artefact = "§6✦✦✦✦✦ ";
     public static String Rarity_Artefact = Rarity_level_Artefact + Rarity_name_Artefact;
@@ -62,6 +57,7 @@ public class ItemsManager {
     public static ItemStack Dynamite;
     public static ItemStack LightingSword;
     public static ItemStack AutoSmeltPickaxe;
+    public static ItemStack FireBall;
 
     public static void init (){
         CreateGrapplingHook();
@@ -80,6 +76,7 @@ public class ItemsManager {
         CreateDynamite();
         CreateLightingSword();
         CreateAutoSmeltPickaxe();
+        CreateFireBall();
     }
 
     private static void CreateGrapplingHook(){
@@ -515,8 +512,8 @@ public class ItemsManager {
         AutoSmeltPickaxe_Lore.add("§fpour les mineurs acharnés.");
         AutoSmeltPickaxe_Lore.add(Separator_Color + "§m--------------------------------");
         AutoSmeltPickaxe_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
-        AutoSmeltPickaxe_Lore.add(Title_Color + "Pouvoir : §cReflux d'alchimie");
-        AutoSmeltPickaxe_Lore.add(Title_Color + "Effet -> §fClique §agauche §f:");
+        AutoSmeltPickaxe_Lore.add(Title_Color + "Pouvoir : §cPioche haute température");
+        AutoSmeltPickaxe_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
         AutoSmeltPickaxe_Lore.add("§fTransforme les minerais en lingots.");
         AutoSmeltPickaxe_Lore.add(Title_Color + "Caractéristique :");
         AutoSmeltPickaxe_Lore.add("§a+ §e5 §bde points d'attaque.");
@@ -532,7 +529,32 @@ public class ItemsManager {
         AutoSmeltPickaxe = AutoSmeltPickaxe_Stack;
     }
 
-
+    private static void CreateFireBall() {
+        ItemStack FireBall_Stack = new ItemStack(Material.FIRE_CHARGE, 1);
+        ItemMeta FireBall_Meta = FireBall_Stack.getItemMeta();
+        Objects.requireNonNull(FireBall_Meta).setDisplayName("§c★ §6Boule de Feu §c★");
+        List<String> FireBall_Lore = new ArrayList<>();
+        FireBall_Lore.add(Separator_Color + "§m--------------------------------");
+        FireBall_Lore.add(Title_Color + "Description :");
+        FireBall_Lore.add("§fCes boules de feu proviennent");
+        FireBall_Lore.add("§fdes couches magmatiques les");
+        FireBall_Lore.add("§fplus profondes.");
+        FireBall_Lore.add(Separator_Color + "§m--------------------------------");
+        FireBall_Lore.add(Title_Color + "Qualité : " + Rarity_Commun);
+        FireBall_Lore.add(Title_Color + "Pouvoir : §cLancé mystique");
+        FireBall_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        FireBall_Lore.add("§fLance la boule de feu à l'endroit");
+        FireBall_Lore.add("§fciblé.");
+        FireBall_Lore.add(Separator_Color + "§m--------------------------------");
+        FireBall_Lore.add(Title_Color + "ID : §fFB_01");
+        FireBall_Meta.setLore(FireBall_Lore);
+        FireBall_Meta.setCustomModelData(4);
+        FireBall_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        FireBall_Meta.addItemFlags(HIDE_ENCHANTS);
+        FireBall_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        FireBall_Stack.setItemMeta(FireBall_Meta);
+        FireBall = FireBall_Stack;
+    }
 
 }
 

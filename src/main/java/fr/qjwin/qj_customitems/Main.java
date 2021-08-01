@@ -23,36 +23,44 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("Give_ServerGift")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_ExplosiveBow")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_InfiniteWaterBucket")).setExecutor(new GiveCommand());
+
         Objects.requireNonNull(this.getCommand("Give_InfiniteLavaBucket")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_MachineGunBow")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_MultiBreakPickaxe")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_CresusPickaxe")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Boomerang")).setExecutor(new GiveCommand());
+
         Objects.requireNonNull(this.getCommand("Give_HomingBow")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_ThrowingAxe")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_UndeadSword")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Dynamite")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_LightingSword")).setExecutor(new GiveCommand());
+
         Objects.requireNonNull(this.getCommand("Give_AutoSmeltPickaxe")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_FireBall")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_All")).setExecutor(new GiveCommand());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 17/17 ==> OK");
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 18/18 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ServerGiftEvent(), this);
         getServer().getPluginManager().registerEvents(new GrapplingEvent(), this);
         getServer().getPluginManager().registerEvents(new InfiniteBucketEvent(), this);
         getServer().getPluginManager().registerEvents(new ExplosivBowEvent(), this);
         getServer().getPluginManager().registerEvents(new TeleportSwordEvent(), this);
+
         getServer().getPluginManager().registerEvents(new MultiBreakPickaxeEvent(), this);
         getServer().getPluginManager().registerEvents(new MachineGunBowEvent(this), this);
         getServer().getPluginManager().registerEvents(new CresusPickaxeEvent(), this);
         getServer().getPluginManager().registerEvents(new BoomerangEvent(this), this);
         getServer().getPluginManager().registerEvents(new HomingBowEvent(this), this);
+
         getServer().getPluginManager().registerEvents(new ThrowingAxeEvent(this), this);
         getServer().getPluginManager().registerEvents(new UndeadSwordEvent(this), this);
         getServer().getPluginManager().registerEvents(new DynamiteEvent(), this);
         getServer().getPluginManager().registerEvents(new LightingSwordEvent(), this);
         getServer().getPluginManager().registerEvents(new AutoSmeltPickaxeEvent(), this);
-        getServer().getLogger().info("QJ_CustomItems >>> initialize events 15/15 ==> OK");
+
+        getServer().getPluginManager().registerEvents(new FireBallEvent(this), this);
+        getServer().getLogger().info("QJ_CustomItems >>> initialize events 16/16 ==> OK");
 
         Cooldown.setupCooldown_grappling();
         Cooldown.setupCooldown_teleportsword();
