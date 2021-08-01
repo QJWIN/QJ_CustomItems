@@ -18,6 +18,8 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Objects;
 
+import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+
 public class MultiBreakPickaxeEvent implements Listener {
 
     BlockFace blockface;
@@ -32,7 +34,7 @@ public class MultiBreakPickaxeEvent implements Listener {
     @EventHandler
     public void onBreak(BlockBreakEvent eventArray) {
         Block block = eventArray.getBlock();
-        if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains("§c§kH§r §6ID §c§kH§r §6: §fMP_01")) {
+        if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fMP_01")) {
                 // P 1 -------------------------------------------------------------------------------------------------------
                 if (blockface.equals(BlockFace.UP) || blockface.equals(BlockFace.DOWN)) {
                     Block block1 = block.getRelative(BlockFace.EAST);

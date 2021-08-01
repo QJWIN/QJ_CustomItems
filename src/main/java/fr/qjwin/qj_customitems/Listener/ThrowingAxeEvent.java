@@ -20,6 +20,8 @@ import org.bukkit.util.Vector;
 
 import java.util.*;
 
+import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+
 public class ThrowingAxeEvent implements Listener {
 
     Main plugin;
@@ -32,7 +34,7 @@ public class ThrowingAxeEvent implements Listener {
     public void onInteract(PlayerInteractEvent eventArray) {
         if(eventArray.getAction().equals(Action.RIGHT_CLICK_BLOCK) || eventArray.getAction().equals(Action.RIGHT_CLICK_AIR)) {
             Player player = eventArray.getPlayer();
-            if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains("§c§kH§r §6ID §c§kH§r §6: §fTA_01")) {
+            if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fTA_01")) {
 
                 int finaldamage = 10;
 

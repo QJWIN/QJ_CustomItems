@@ -5,10 +5,6 @@ import fr.qjwin.qj_customitems.Listener.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static org.bukkit.ChatColor.COLOR_CHAR;
 
 public final class Main extends JavaPlugin {
 
@@ -38,9 +34,14 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("Give_Dynamite")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_LightingSword")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_AutoSmeltPickaxe")).setExecutor(new GiveCommand());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 15/15 ==> OK");
+        Objects.requireNonNull(this.getCommand("Give_All")).setExecutor(new GiveCommand());
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 17/17 ==> OK");
 
-        getServer().getPluginManager().registerEvents(new ItemsEvents(), this);
+        getServer().getPluginManager().registerEvents(new ServerGiftEvent(), this);
+        getServer().getPluginManager().registerEvents(new GrapplingEvent(), this);
+        getServer().getPluginManager().registerEvents(new InfiniteBucketEvent(), this);
+        getServer().getPluginManager().registerEvents(new ExplosivBowEvent(), this);
+        getServer().getPluginManager().registerEvents(new TeleportSwordEvent(), this);
         getServer().getPluginManager().registerEvents(new MultiBreakPickaxeEvent(), this);
         getServer().getPluginManager().registerEvents(new MachineGunBowEvent(this), this);
         getServer().getPluginManager().registerEvents(new CresusPickaxeEvent(), this);
@@ -50,7 +51,7 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UndeadSwordEvent(this), this);
         getServer().getPluginManager().registerEvents(new DynamiteEvent(), this);
         getServer().getPluginManager().registerEvents(new LightingSwordEvent(), this);
-        getServer().getLogger().info("QJ_CustomItems >>> initialize events 10/10 ==> OK");
+        getServer().getLogger().info("QJ_CustomItems >>> initialize events 14/14 ==> OK");
 
         Cooldown.setupCooldown_grappling();
         Cooldown.setupCooldown_teleportsword();

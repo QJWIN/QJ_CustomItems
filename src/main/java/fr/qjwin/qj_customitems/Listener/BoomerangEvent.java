@@ -21,6 +21,8 @@ import org.bukkit.util.Vector;
 
 import java.util.Objects;
 
+import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+
 public class BoomerangEvent implements Listener {
 
     Main plugin;
@@ -34,25 +36,20 @@ public class BoomerangEvent implements Listener {
 
         Player player = eventArray.getPlayer();
 
-        if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains("§c§kH§r §6ID §c§kH§r §6: §fBR_01")) {
+        if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fBR_01")) {
 
             ArmorStand as = (ArmorStand) player.getWorld().spawnEntity(player.getLocation(), EntityType.ARMOR_STAND);
             Location destination = player.getLocation().add(player.getLocation().getDirection().multiply(10));
-
             as.setArms(true);
             as.setGravity(false);
             as.setVisible(false);
             as.setItemInHand(new ItemStack(Material.BONE));
             as.setRightArmPose(new EulerAngle(Math.toRadians(0), Math.toRadians(120), Math.toRadians(0)));
-
             ItemStack BaseItemStack = ItemsManager.Boomerang;
             ItemMeta BaseItemMeta = BaseItemStack.getItemMeta();
-
             ItemStack PreserveItemStack = eventArray.getPlayer().getInventory().getItemInMainHand();
             ItemMeta PreserveItemMeta = PreserveItemStack.getItemMeta();
-
             player.getInventory().removeItem(PreserveItemStack);
-
             Vector vector = destination.subtract(player.getLocation()).toVector();
 
             new BukkitRunnable() {
@@ -64,21 +61,17 @@ public class BoomerangEvent implements Listener {
                     EulerAngle rot = as.getRightArmPose();
                     EulerAngle rotnew = rot.add(0, 20, 0);
                     as.setRightArmPose(rotnew);
-
                     if (i >= distance) {
                         as.teleport(as.getLocation().subtract(vector.normalize()));
                         if (i >= distance * 2) {
                             as.remove();
                             if (player.getInventory().firstEmpty() == -1) {
-
                                 if(BaseItemMeta == PreserveItemMeta) {
                                     player.getWorld().dropItemNaturally(player.getLocation(), BaseItemStack);
                                 } else {
                                     player.getWorld().dropItemNaturally(player.getLocation(), PreserveItemStack);
                                 }
-
                             } else {
-
                                 if(BaseItemMeta != PreserveItemMeta) {
                                     player.getInventory().addItem(BaseItemStack);
                                 } else {
@@ -90,21 +83,15 @@ public class BoomerangEvent implements Listener {
                     } else {
                         as.teleport(as.getLocation().add(vector.normalize()));
                     }
-
                     i++;
-
                     for (Entity entity : as.getLocation().getChunk().getEntities()) {
                         if (as.getLocation().distanceSquared(entity.getLocation()) < 1) {
-
                             if (entity != player) {
-
                                 if (entity instanceof Monster || entity instanceof Animals || entity instanceof Player) {
                                     LivingEntity livingentity = (LivingEntity) entity;
                                     livingentity.damage(4, player);
                                 }
-
                             }
-
                         }
                     }
                 }

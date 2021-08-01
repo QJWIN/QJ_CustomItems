@@ -5,7 +5,6 @@ Made by : QJWIN
 */
 package fr.qjwin.qj_customitems.Listener;
 
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Player;
@@ -14,8 +13,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-
 import java.util.*;
+import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
 
 public class DynamiteEvent implements Listener {
 
@@ -24,12 +23,9 @@ public class DynamiteEvent implements Listener {
     @EventHandler
     @SuppressWarnings("deprecation")
     public void onInteract(PlayerInteractEvent eventArray) {
-
         Player player = eventArray.getPlayer();
-
         if(eventArray.getAction().equals(Action.RIGHT_CLICK_AIR) || eventArray.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-
-            if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(ChatColor.of("#009933") + "ID : §fTD_01") ) {
+            if (player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color +  "ID : §fTD_01") ) {
                 FallingBlock tnt = player.getWorld().spawnFallingBlock(player.getEyeLocation(), Material.TNT, (byte) 0);
                 tnt.setDropItem(false);
                 throwedtnt.add(tnt);

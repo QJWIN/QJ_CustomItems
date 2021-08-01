@@ -19,6 +19,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Objects;
 
+import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+
 public class MachineGunBowEvent implements Listener {
     Main plugin;
     public MachineGunBowEvent(Main plugin){
@@ -28,7 +30,7 @@ public class MachineGunBowEvent implements Listener {
     public void onClick(PlayerInteractEvent eventArray) {
         if (eventArray.getAction().equals(Action.LEFT_CLICK_AIR) || eventArray.getAction().equals(Action.LEFT_CLICK_BLOCK)){
 
-            if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains("§c§kH§r §6ID §c§kH§r §6: §fMB_01")) {
+            if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fMB_01")) {
                 new BukkitRunnable() {
                     int timer = 25;
                     @Override
