@@ -11,6 +11,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+@SuppressWarnings("NullableProblems")
 public class GiveCommand implements CommandExecutor {
 
     @Override
@@ -66,6 +67,9 @@ public class GiveCommand implements CommandExecutor {
             if (cmd.getName().equalsIgnoreCase("Give_Dynamite")){
                 player_instance.getInventory().addItem(ItemsManager.Dynamite);
             }
+            if (cmd.getName().equalsIgnoreCase("Give_LightingSword")){
+                player_instance.getInventory().addItem(ItemsManager.LightingSword);
+            }
             if (cmd.getName().equalsIgnoreCase("Give_All")){
                 player_instance.getInventory().addItem(ItemsManager.GrapplingHook);
                 player_instance.getInventory().addItem(ItemsManager.TeleportSword);
@@ -81,6 +85,7 @@ public class GiveCommand implements CommandExecutor {
                 player_instance.getInventory().addItem(ItemsManager.ThrowingAxe);
                 player_instance.getInventory().addItem(ItemsManager.UndeadSword);
                 player_instance.getInventory().addItem(ItemsManager.Dynamite);
+                player_instance.getInventory().addItem(ItemsManager.LightingSword);
             }
         } else {
             sender.sendMessage("You are not allowed to use this command ! Only opérator can do this !");

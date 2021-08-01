@@ -32,7 +32,8 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("Give_ThrowingAxe")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_UndeadSword")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Dynamite")).setExecutor(new GiveCommand());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 14/14 ==> OK");
+        Objects.requireNonNull(this.getCommand("Give_LightingSword")).setExecutor(new GiveCommand());
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 15/15 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ItemsEvents(), this);
         getServer().getPluginManager().registerEvents(new MultiBreakPickaxeEvent(), this);
@@ -43,7 +44,8 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ThrowingAxeEvent(this), this);
         getServer().getPluginManager().registerEvents(new UndeadSwordEvent(this), this);
         getServer().getPluginManager().registerEvents(new DynamiteEvent(), this);
-        getServer().getLogger().info("QJ_CustomItems >>> initialize events 9/9 ==> OK");
+        getServer().getPluginManager().registerEvents(new LightingSwordEvent(), this);
+        getServer().getLogger().info("QJ_CustomItems >>> initialize events 10/10 ==> OK");
 
         Cooldown.setupCooldown_grappling();
         Cooldown.setupCooldown_teleportsword();

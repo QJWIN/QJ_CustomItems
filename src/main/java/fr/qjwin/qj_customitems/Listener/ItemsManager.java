@@ -36,6 +36,7 @@ public class ItemsManager {
     public static ItemStack ThrowingAxe;
     public static ItemStack UndeadSword;
     public static ItemStack Dynamite;
+    public static ItemStack LightingSword;
 
     public static void init (){
         CreateGrapplingHook();
@@ -52,6 +53,7 @@ public class ItemsManager {
         CreateThrowingAxe();
         CreateUndeadSword();
         CreateDynamite();
+        CreateLightingSword();
     }
 
     private static void CreateGrapplingHook(){
@@ -281,6 +283,7 @@ public class ItemsManager {
         UndeadSword_Stack.setItemMeta(UndeadSword_Meta);
         UndeadSword = UndeadSword_Stack;
     }
+
     private static void CreateDynamite() {
         ItemStack Dynamite_Stack = new ItemStack(Material.TNT, 1);
         ItemMeta Dynamite_Meta = Dynamite_Stack.getItemMeta();
@@ -296,6 +299,25 @@ public class ItemsManager {
         Dynamite_Stack.setItemMeta(Dynamite_Meta);
         Dynamite = Dynamite_Stack;
     }
+
+    private static void CreateLightingSword() {
+        ItemStack LightingSword_Stack = new ItemStack(Material.DIAMOND_SWORD, 1);
+        ItemMeta LightingSword_Meta = LightingSword_Stack.getItemMeta();
+        Objects.requireNonNull(LightingSword_Meta).setDisplayName("§6Epée de Zeus");
+        List<String> LightingSword_Lore = new ArrayList<>();
+        LightingSword_Lore.add("§bLance un éclaire quand une");
+        LightingSword_Lore.add("§bcible est touchée.");
+        LightingSword_Lore.add("§bClique §adroit §bpour activé");
+        LightingSword_Lore.add("§bl'effet : §eColère de Zeus");
+        LightingSword_Lore.add("§c§kH§r §6ID §c§kH§r §6: §fLS_01");
+        LightingSword_Meta.setLore(LightingSword_Lore);
+        LightingSword_Meta.setCustomModelData(69);
+        LightingSword_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        LightingSword_Meta.addItemFlags(HIDE_ENCHANTS);
+        LightingSword_Stack.setItemMeta(LightingSword_Meta);
+        LightingSword = LightingSword_Stack;
+    }
+
 
 
 }
