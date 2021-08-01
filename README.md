@@ -1,0 +1,3 @@
+# QJ_CustomItems
+This plugin add custom items with specials ability.
+soon editing ...
