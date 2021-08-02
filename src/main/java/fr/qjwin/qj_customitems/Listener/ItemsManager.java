@@ -65,6 +65,7 @@ public class ItemsManager {
     public static ItemStack Grenade;
     public static ItemStack HermesShoes;
     public static ItemStack Landmine;
+    public static ItemStack InfiniteEmptyBucket;
 
     public static void init (){
         CreateGrapplingHook();
@@ -87,6 +88,7 @@ public class ItemsManager {
         CreateGrenade();
         CreateHermesShoes();
         CreateLandmine();
+        CreateInfiniteEmptyBucket();
     }
 
     private static void CreateGrapplingHook(){
@@ -495,6 +497,7 @@ public class ItemsManager {
         LightingSword_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
         LightingSword_Lore.add("§fLance un éclaire sur toutes les");
         LightingSword_Lore.add("§fentitées dans un rayon de 12 blocs.");
+        LightingSword_Lore.add(Title_Color + "Cooldown : §e15 §fsecondes.");
         LightingSword_Lore.add(Title_Color + "Caractéristique :");
         LightingSword_Lore.add("§a+ §e7 §bde points d'attaque.");
         LightingSword_Lore.add("§a+ §e1.6 §bde vitesse d'attaque.");
@@ -647,6 +650,29 @@ public class ItemsManager {
         Landmine = Landmine_Stack;
     }
 
+    private static void CreateInfiniteEmptyBucket(){
+        ItemStack InfiniteEmptyBucket_Stack = new ItemStack(Material.BUCKET, 1);
+        ItemMeta InfiniteEmptyBucket_Meta = InfiniteEmptyBucket_Stack.getItemMeta();
+        Objects.requireNonNull(InfiniteEmptyBucket_Meta).setDisplayName("§c★ §6Seau sans font §c★");
+        List<String> InfiniteEmptyBucket_Lore = new ArrayList<>();
+        InfiniteEmptyBucket_Lore.add(Separator_Color + "§m--------------------------------");
+        InfiniteEmptyBucket_Lore.add(Title_Color + "Description :");
+        InfiniteEmptyBucket_Lore.add("§fCe seau ne ce remplis jamais,");
+        InfiniteEmptyBucket_Lore.add("§fvous pourrez vider des océans !");
+        InfiniteEmptyBucket_Lore.add(Separator_Color + "§m--------------------------------");
+        InfiniteEmptyBucket_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+        InfiniteEmptyBucket_Lore.add(Title_Color + "Pouvoir : §cRéservoir infini");
+        InfiniteEmptyBucket_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        InfiniteEmptyBucket_Lore.add("§fRetire les sources d'eau et");
+        InfiniteEmptyBucket_Lore.add("§fde lave sans remplir le seau.");
+        InfiniteEmptyBucket_Lore.add(Separator_Color + "§m--------------------------------");
+        InfiniteEmptyBucket_Lore.add(Title_Color + "ID : §fIB_01");
+        InfiniteEmptyBucket_Meta.setLore(InfiniteEmptyBucket_Lore);
+        InfiniteEmptyBucket_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        InfiniteEmptyBucket_Meta.addItemFlags(HIDE_ENCHANTS);
+        InfiniteEmptyBucket_Stack.setItemMeta(InfiniteEmptyBucket_Meta);
+        InfiniteEmptyBucket = InfiniteEmptyBucket_Stack;
+    }
 
 }
 

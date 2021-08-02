@@ -53,14 +53,14 @@ public class LandMineEvent implements Listener {
                 if (!(drops.size() == 0)) {
                     eventArray.setDropItems(false);
                     eventArray.getBlock().getWorld().dropItemNaturally(eventArray.getBlock().getLocation(), ItemsManager.Landmine);
-                    player.sendMessage("§cAttention vous déterré une land mine appartenant à : " + landmineplacedBy);
+                    player.sendMessage("§c! Attention ! §fvous déterré une land mine appartenant à : §b" + landmineplacedBy + "§f, agissez avec prudence !");
                 }
             } else {
                 Collection<ItemStack> drops = eventArray.getBlock().getDrops();
                 if (!(drops.size() == 0)) {
                     eventArray.setDropItems(false);
                     eventArray.getBlock().getWorld().dropItemNaturally(eventArray.getBlock().getLocation(), ItemsManager.Landmine);
-                    player.sendMessage("§cAttention vous déterré votre land mine.");
+                    player.sendMessage("§c! Attention ! §fvous déterré votre land mine, agissez avec prudence !");
                 }
 
             }
@@ -86,7 +86,7 @@ public class LandMineEvent implements Listener {
                 RelativePos.setType(Material.AIR);
                 RelativePos.removeMetadata("landmine", plugin);
             } else {
-                player.sendMessage("§cAttention vous marchez sur votre land mine !");
+                player.sendMessage("§c! Attention ! §fvous marchez sur votre land mine, agissez avec prudence !");
             }
         }
     }

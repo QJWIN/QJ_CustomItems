@@ -1,5 +1,5 @@
 name: QJ_CustomItems
-version: 1.1.4
+version: 1.2.0
 main: fr.qjwin.qj_customitems.Main
 api-version: 1.16
 authors: [ QJWIN ]
@@ -64,6 +64,9 @@ commands:
     usage: /<command>
   Give_Landmine:
     description: give a Landmine to the player.
+    usage: /<command>
+  Give_InfiniteEmptyBucket:
+    description: give a InfiniteEmptyBucket to the player.
     usage: /<command>
   Give_All:
     description: give all items to the player.

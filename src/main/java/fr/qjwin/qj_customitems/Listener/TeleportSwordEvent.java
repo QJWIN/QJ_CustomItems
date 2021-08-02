@@ -24,9 +24,11 @@ public class TeleportSwordEvent implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent eventArray) {
+        int getMillisToSeconds;
         Player player_instance = eventArray.getPlayer();
         if (eventArray.getAction().equals(Action.RIGHT_CLICK_AIR)) {
             if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fTS_01")) {
+
                 if (Cooldown.checkCooldown_teleportsword(eventArray.getPlayer())) {
                     Block Destination_Block = player_instance.getTargetBlock(null, 8);
                     Location Destination_Location = Destination_Block.getLocation();
@@ -39,9 +41,11 @@ public class TeleportSwordEvent implements Listener {
                     player_instance.playSound(player_instance.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 5, 5);
                     Cooldown.setCooldown_teleportsword(eventArray.getPlayer(), 5);
                 } else {
-                    player_instance.sendMessage(ChatColor.GREEN + "L'épée n'as pas encore rechargée son pouvoir !");
+                    getMillisToSeconds = (int) ((Cooldown.cooldowns_teleportsword.get(player_instance.getUniqueId()) - System.currentTimeMillis()) / 1000);
+                    player_instance.sendMessage("§aL'épée n'as pas encore rechargée Il reste §e" + getMillisToSeconds + " §asecondes.");
                 }
                 eventArray.setCancelled(true);
+
             }
 
         }

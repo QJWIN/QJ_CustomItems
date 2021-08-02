@@ -25,6 +25,7 @@ public class GrapplingEvent implements Listener {
         Player player_instance = eventArray.getPlayer();
         if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fGH_01")) {
             if (eventArray.getState().equals(PlayerFishEvent.State.REEL_IN)) {
+
                 if (Cooldown.checkCooldown_grappling(eventArray.getPlayer())) {
                     Location playerlocation = player_instance.getLocation();
                     Location hooklocation = eventArray.getHook().getLocation();
@@ -35,6 +36,7 @@ public class GrapplingEvent implements Listener {
                     getMillisToSeconds = (int) ((Cooldown.cooldowns_grappin.get(player_instance.getUniqueId()) - System.currentTimeMillis()) / 1000);
                     player_instance.sendMessage(ChatColor.GREEN + "Le grappin n'est pas encore près ! Il reste " + ChatColor.YELLOW + getMillisToSeconds + ChatColor.GREEN + " secondes.");
                 }
+
             }
         }
     }

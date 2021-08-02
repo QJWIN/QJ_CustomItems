@@ -42,9 +42,9 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("Give_HermesShoes")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Landmine")).setExecutor(new GiveCommand());
 
+        Objects.requireNonNull(this.getCommand("Give_InfiniteEmptyBucket")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_All")).setExecutor(new GiveCommand());
-
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 21/21 ==> OK");
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 22/22 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ServerGiftEvent(), this);
         getServer().getPluginManager().registerEvents(new GrapplingEvent(), this);
@@ -72,7 +72,8 @@ public final class Main extends JavaPlugin {
 
         Cooldown.setupCooldown_grappling();
         Cooldown.setupCooldown_teleportsword();
-        getServer().getLogger().info("QJ_CustomItems >>> load cooldown in memory 2/2 ==> OK");
+        Cooldown.setupCooldown_lightingsword();
+        getServer().getLogger().info("QJ_CustomItems >>> load cooldown in memory 3/3 ==> OK");
 
         this.getConfig().options().copyDefaults(true);
         this.saveDefaultConfig();
