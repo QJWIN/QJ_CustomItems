@@ -23,7 +23,7 @@ public class Cooldown {
         cooldowns_teleportsword = new HashMap<>();
     }
     public static void setupCooldown_lightingsword(){
-        cooldowns_teleportsword = new HashMap<>();
+        cooldowns_lightingsword = new HashMap<>();
     }
 
     public static void setCooldown_grappling(Player player, int seconds) {
@@ -36,7 +36,7 @@ public class Cooldown {
     }
     public static void setCooldown_lightingsword(Player player, int seconds) {
         double delay = System.currentTimeMillis() + (seconds * 1000L);
-        cooldowns_teleportsword.put(player.getUniqueId(), delay);
+        cooldowns_lightingsword.put(player.getUniqueId(), delay);
     }
 
     public static boolean checkCooldown_grappling(Player player) {

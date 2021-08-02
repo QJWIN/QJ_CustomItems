@@ -53,9 +53,10 @@ public class LightingSwordEvent implements Listener {
                             livingEntity.damage(damage);
                         }
                     }
+
                     Cooldown.setCooldown_lightingsword(player, 15);
                 } else {
-                getMillisToSeconds = (int) ((Cooldown.cooldowns_teleportsword.get(player.getUniqueId()) - System.currentTimeMillis()) / 1000);
+                    getMillisToSeconds = (int) ((Cooldown.cooldowns_lightingsword.get(player.getUniqueId()) - System.currentTimeMillis()) / 1000);
                     player.sendMessage("§aL'épée n'as pas encore rechargée Il reste §e" + getMillisToSeconds + " §asecondes.");
                 }
                 eventArray.setCancelled(true);
