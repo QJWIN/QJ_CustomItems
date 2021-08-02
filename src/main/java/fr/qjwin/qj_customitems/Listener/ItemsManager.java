@@ -6,6 +6,7 @@ Made by : QJWIN
 package fr.qjwin.qj_customitems.Listener;
 
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -13,6 +14,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,8 @@ public class ItemsManager {
 
     public static ChatColor Title_Color = ChatColor.of("#009933");
     public static ChatColor Separator_Color = ChatColor.of("#3399ff");
+    public static Color HermesShoes_Color = Color.fromRGB(21, 139, 227);
+
     public static String Rarity_name_Commun = ChatColor.of("#1eff00") + "Commun";
     public static String Rarity_level_Commun = "§6✦§8✦✦✦✦ ";
     public static String Rarity_Commun = Rarity_level_Commun + Rarity_name_Commun;
@@ -58,6 +62,9 @@ public class ItemsManager {
     public static ItemStack LightingSword;
     public static ItemStack AutoSmeltPickaxe;
     public static ItemStack FireBall;
+    public static ItemStack Grenade;
+    public static ItemStack HermesShoes;
+    public static ItemStack Landmine;
 
     public static void init (){
         CreateGrapplingHook();
@@ -77,6 +84,9 @@ public class ItemsManager {
         CreateLightingSword();
         CreateAutoSmeltPickaxe();
         CreateFireBall();
+        CreateGrenade();
+        CreateHermesShoes();
+        CreateLandmine();
     }
 
     private static void CreateGrapplingHook(){
@@ -555,6 +565,88 @@ public class ItemsManager {
         FireBall_Stack.setItemMeta(FireBall_Meta);
         FireBall = FireBall_Stack;
     }
+
+    public static void CreateGrenade() {
+        ItemStack Grenade_Stack = new ItemStack(Material.SNOWBALL, 1);
+        ItemMeta Grenade_Meta = Grenade_Stack.getItemMeta();
+        Objects.requireNonNull(Grenade_Meta).setDisplayName("§c★ §6Grenade MKII §c★");
+        List<String> Grenade_Lore = new ArrayList<>();
+        Grenade_Lore.add(Separator_Color + "§m--------------------------------");
+        Grenade_Lore.add(Title_Color + "Description :");
+        Grenade_Lore.add("§fGrenade militaire américaine");
+        Grenade_Lore.add("§fde la seconde guerre mondial");
+        Grenade_Lore.add(Separator_Color + "§m--------------------------------");
+        Grenade_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+        Grenade_Lore.add(Title_Color + "Pouvoir : §cLancé franc");
+        Grenade_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Grenade_Lore.add("§fLance la grenade à l'endroit");
+        Grenade_Lore.add("§fciblé.");
+        Grenade_Lore.add(Title_Color + "Cooldown : §e10 §fsecondes.");
+        Grenade_Lore.add(Separator_Color + "§m--------------------------------");
+        Grenade_Lore.add(Title_Color + "ID : §fGN_01");
+        Grenade_Meta.setLore(Grenade_Lore);
+        Grenade_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        Grenade_Meta.addItemFlags(HIDE_ENCHANTS);
+        Grenade_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Grenade_Stack.setItemMeta(Grenade_Meta);
+        Grenade = Grenade_Stack;
+    }
+
+    public static void CreateHermesShoes() {
+        ItemStack HermesShoes_Stack = new ItemStack(Material.LEATHER_BOOTS, 1);
+        LeatherArmorMeta HermesShoes_Meta = (LeatherArmorMeta) HermesShoes_Stack.getItemMeta();
+        Objects.requireNonNull(HermesShoes_Meta).setDisplayName("§c★ §6Sandales ailées §c★");
+        List<String> HermesShoes_Lore = new ArrayList<>();
+        HermesShoes_Lore.add(Separator_Color + "§m--------------------------------");
+        HermesShoes_Lore.add(Title_Color + "Description :");
+        HermesShoes_Lore.add("§fIl est dit que Hermès le");
+        HermesShoes_Lore.add("§fdemi dieu donna ces sandales");
+        HermesShoes_Lore.add("§fà Apollon pour le calmer.");
+        HermesShoes_Lore.add(Separator_Color + "§m--------------------------------");
+        HermesShoes_Lore.add(Title_Color + "Qualité : " + Rarity_Legendary);
+        HermesShoes_Lore.add(Title_Color + "Pouvoir : §cVitesse divine");
+        HermesShoes_Lore.add(Title_Color + "Effet -> §fen sprint §f:");
+        HermesShoes_Lore.add("§fAjoute un effet de vitesse lors");
+        HermesShoes_Lore.add("§fd'un sprint.");
+        HermesShoes_Lore.add(Title_Color + "Caractéristique :");
+        HermesShoes_Lore.add("§a+ §e1 §bpoint d'armure.");
+        HermesShoes_Lore.add(Separator_Color + "§m--------------------------------");
+        HermesShoes_Lore.add(Title_Color + "ID : §fHS_01");
+        HermesShoes_Meta.setLore(HermesShoes_Lore);
+        HermesShoes_Meta.setColor(HermesShoes_Color);
+        HermesShoes_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        HermesShoes_Meta.addItemFlags(HIDE_ENCHANTS);
+        HermesShoes_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        HermesShoes_Meta.addItemFlags(HIDE_DYE);
+        HermesShoes_Stack.setItemMeta(HermesShoes_Meta);
+        HermesShoes = HermesShoes_Stack;
+    }
+
+    public static void CreateLandmine() {
+        ItemStack Landmine_Stack = new ItemStack(Material.TNT, 1);
+        ItemMeta Landmine_Meta = Landmine_Stack.getItemMeta();
+        Objects.requireNonNull(Landmine_Meta).setDisplayName("§c★ §6Tellermine 43 §c★");
+        List<String> Landmine_Lore = new ArrayList<>();
+        Landmine_Lore.add(Separator_Color + "§m--------------------------------");
+        Landmine_Lore.add(Title_Color + "Description :");
+        Landmine_Lore.add("§fInventé pendant la seconde");
+        Landmine_Lore.add("§fguerre mondial la tellermine 43");
+        Landmine_Lore.add("§fest une mine très puissante.");
+        Landmine_Lore.add(Separator_Color + "§m--------------------------------");
+        Landmine_Lore.add(Title_Color + "Qualité : " + Rarity_Legendary);
+        Landmine_Lore.add(Title_Color + "Pouvoir : §cIED");
+        Landmine_Lore.add(Title_Color + "Effet -> §fen marchant dessus §f:");
+        Landmine_Lore.add("§fDissimulé sous un bloc lorsqu'un");
+        Landmine_Lore.add("§fjoueur marche dessus explose !");
+        Landmine_Lore.add(Separator_Color + "§m--------------------------------");
+        Landmine_Lore.add(Title_Color + "ID : §fTL_01");
+        Landmine_Meta.setLore(Landmine_Lore);
+        Landmine_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        Landmine_Meta.addItemFlags(HIDE_ENCHANTS);
+        Landmine_Stack.setItemMeta(Landmine_Meta);
+        Landmine = Landmine_Stack;
+    }
+
 
 }
 

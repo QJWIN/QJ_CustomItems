@@ -76,6 +76,15 @@ public class GiveCommand implements CommandExecutor {
             if (cmd.getName().equalsIgnoreCase("Give_FireBall")){
                 player_instance.getInventory().addItem(ItemsManager.FireBall);
             }
+            if (cmd.getName().equalsIgnoreCase("Give_Grenade")){
+                player_instance.getInventory().addItem(ItemsManager.Grenade);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_HermesShoes")){
+                player_instance.getInventory().addItem(ItemsManager.HermesShoes);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Landmine")){
+                player_instance.getInventory().addItem(ItemsManager.Landmine);
+            }
             if (cmd.getName().equalsIgnoreCase("Give_All")){
                 player_instance.getInventory().addItem(ItemsManager.GrapplingHook);
                 player_instance.getInventory().addItem(ItemsManager.TeleportSword);
@@ -94,6 +103,9 @@ public class GiveCommand implements CommandExecutor {
                 player_instance.getInventory().addItem(ItemsManager.LightingSword);
                 player_instance.getInventory().addItem(ItemsManager.AutoSmeltPickaxe);
                 player_instance.getInventory().addItem(ItemsManager.FireBall);
+                player_instance.getInventory().addItem(ItemsManager.Grenade);
+                player_instance.getInventory().addItem(ItemsManager.HermesShoes);
+                player_instance.getInventory().addItem(ItemsManager.Landmine);
             }
         } else {
             sender.sendMessage("You are not allowed to use this command ! Only opérator can do this !");

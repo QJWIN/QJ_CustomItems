@@ -38,8 +38,13 @@ public final class Main extends JavaPlugin {
 
         Objects.requireNonNull(this.getCommand("Give_AutoSmeltPickaxe")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_FireBall")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Grenade")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_HermesShoes")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Landmine")).setExecutor(new GiveCommand());
+
         Objects.requireNonNull(this.getCommand("Give_All")).setExecutor(new GiveCommand());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 18/18 ==> OK");
+
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 21/21 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ServerGiftEvent(), this);
         getServer().getPluginManager().registerEvents(new GrapplingEvent(), this);
@@ -59,8 +64,11 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new LightingSwordEvent(), this);
         getServer().getPluginManager().registerEvents(new AutoSmeltPickaxeEvent(), this);
 
+        getServer().getPluginManager().registerEvents(new GrenadeEvent(), this);
         getServer().getPluginManager().registerEvents(new FireBallEvent(this), this);
-        getServer().getLogger().info("QJ_CustomItems >>> initialize events 16/16 ==> OK");
+        getServer().getPluginManager().registerEvents(new HermesShoesEvent(), this);
+        getServer().getPluginManager().registerEvents(new LandMineEvent(this), this);
+        getServer().getLogger().info("QJ_CustomItems >>> initialize events 19/19 ==> OK");
 
         Cooldown.setupCooldown_grappling();
         Cooldown.setupCooldown_teleportsword();

@@ -28,14 +28,14 @@ public class Cooldown {
     }
     public static void setCooldown_teleportsword(Player player, int seconds) {
         double delay = System.currentTimeMillis() + (seconds * 1000L);
-        cooldowns_grappin.put(player.getUniqueId(), delay);
+        cooldowns_teleportsword.put(player.getUniqueId(), delay);
     }
 
     public static boolean checkCooldown_grappling(Player player) {
         return !cooldowns_grappin.containsKey(player.getUniqueId()) || cooldowns_grappin.get(player.getUniqueId()) <= System.currentTimeMillis();
     }
     public static boolean checkCooldown_teleportsword(Player player) {
-        return !cooldowns_grappin.containsKey(player.getUniqueId()) || cooldowns_grappin.get(player.getUniqueId()) <= System.currentTimeMillis();
+        return !cooldowns_teleportsword.containsKey(player.getUniqueId()) || cooldowns_teleportsword.get(player.getUniqueId()) <= System.currentTimeMillis();
     }
 
 }

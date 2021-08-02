@@ -1,5 +1,5 @@
 name: QJ_CustomItems
-version: 1.1.3
+version: 1.1.4
 main: fr.qjwin.qj_customitems.Main
 api-version: 1.16
 authors: [ QJWIN ]
@@ -55,6 +55,15 @@ commands:
     usage: /<command>
   Give_FireBall:
     description: give a FireBall to the player.
+    usage: /<command>
+  Give_Grenade:
+    description: give a Grenade to the player.
+    usage: /<command>
+  Give_HermesShoes:
+    description: give a HermesShoes to the player.
+    usage: /<command>
+  Give_Landmine:
+    description: give a Landmine to the player.
     usage: /<command>
   Give_All:
     description: give all items to the player.
