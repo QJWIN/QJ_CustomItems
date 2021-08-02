@@ -22,6 +22,7 @@ Voici la liste des items
 - Ajout des sandales d'Hermes !
 - Ajout de landmines !
 - Ajout d'un seau sans font [demander par Atotomique]
+- Ajout de potion de Haste + chance
 
 ## Config Options
 
