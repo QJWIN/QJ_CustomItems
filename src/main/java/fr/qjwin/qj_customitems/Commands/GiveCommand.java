@@ -88,6 +88,24 @@ public class GiveCommand implements CommandExecutor {
             if (cmd.getName().equalsIgnoreCase("Give_InfiniteEmptyBucket")){
                 player_instance.getInventory().addItem(ItemsManager.InfiniteEmptyBucket);
             }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_haste_1")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_haste_1);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_haste_2")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_haste_2);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_haste_3")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_haste_3);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_luck_1")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_luck_1);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_luck_2")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_luck_2);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_luck_3")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_luck_3);
+            }
             if (cmd.getName().equalsIgnoreCase("Give_All")){
                 player_instance.getInventory().addItem(ItemsManager.GrapplingHook);
                 player_instance.getInventory().addItem(ItemsManager.TeleportSword);
@@ -110,6 +128,12 @@ public class GiveCommand implements CommandExecutor {
                 player_instance.getInventory().addItem(ItemsManager.HermesShoes);
                 player_instance.getInventory().addItem(ItemsManager.Landmine);
                 player_instance.getInventory().addItem(ItemsManager.InfiniteEmptyBucket);
+                player_instance.getInventory().addItem(ItemsManager.Potion_haste_1);
+                player_instance.getInventory().addItem(ItemsManager.Potion_haste_2);
+                player_instance.getInventory().addItem(ItemsManager.Potion_haste_3);
+                player_instance.getInventory().addItem(ItemsManager.Potion_luck_1);
+                player_instance.getInventory().addItem(ItemsManager.Potion_luck_2);
+                player_instance.getInventory().addItem(ItemsManager.Potion_luck_3);
             }
         } else {
             sender.sendMessage("You are not allowed to use this command ! Only opérator can do this !");

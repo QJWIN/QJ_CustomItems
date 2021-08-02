@@ -43,8 +43,15 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("Give_Landmine")).setExecutor(new GiveCommand());
 
         Objects.requireNonNull(this.getCommand("Give_InfiniteEmptyBucket")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Potion_haste_1")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Potion_haste_2")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Potion_haste_3")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Potion_luck_1")).setExecutor(new GiveCommand());
+
+        Objects.requireNonNull(this.getCommand("Give_Potion_luck_2")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Potion_luck_3")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_All")).setExecutor(new GiveCommand());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 22/22 ==> OK");
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 28/28 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ServerGiftEvent(), this);
         getServer().getPluginManager().registerEvents(new GrapplingEvent(), this);

@@ -15,6 +15,9 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +70,14 @@ public class ItemsManager {
     public static ItemStack Landmine;
     public static ItemStack InfiniteEmptyBucket;
 
+    public static ItemStack Potion_haste_1;
+    public static ItemStack Potion_haste_2;
+    public static ItemStack Potion_haste_3;
+
+    public static ItemStack Potion_luck_1;
+    public static ItemStack Potion_luck_2;
+    public static ItemStack Potion_luck_3;
+
     public static void init (){
         CreateGrapplingHook();
         CreateTeleportSword();
@@ -89,6 +100,12 @@ public class ItemsManager {
         CreateHermesShoes();
         CreateLandmine();
         CreateInfiniteEmptyBucket();
+        CreatePotion_haste_1();
+        CreatePotion_haste_2();
+        CreatePotion_haste_3();
+        CreatePotion_luck_1();
+        CreatePotion_luck_2();
+        CreatePotion_luck_3();
     }
 
     private static void CreateGrapplingHook(){
@@ -340,7 +357,7 @@ public class ItemsManager {
         Boomerang_Lore.add(Separator_Color + "§m--------------------------------");
         Boomerang_Lore.add(Title_Color + "Description :");
         Boomerang_Lore.add("§fVéritable Boomerang Australien,");
-        Boomerang_Lore.add("§fil sera vous être  à la chasse.");
+        Boomerang_Lore.add("§fil sera vous être utile à la chasse.");
         Boomerang_Lore.add(Separator_Color + "§m--------------------------------");
         Boomerang_Lore.add(Title_Color + "Qualité : " + Rarity_Commun);
         Boomerang_Lore.add(Title_Color + "Pouvoir : §cBoomerang lançable");
@@ -674,6 +691,167 @@ public class ItemsManager {
         InfiniteEmptyBucket = InfiniteEmptyBucket_Stack;
     }
 
+    private static void CreatePotion_haste_1() {
+        ItemStack Potion_haste_1_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_haste_1_Meta = (PotionMeta) Potion_haste_1_Stack.getItemMeta();
+        PotionEffect Hast1Effect = PotionEffectType.FAST_DIGGING.createEffect( 2400, 0);
+        Objects.requireNonNull(Potion_haste_1_Meta).addCustomEffect(Hast1Effect, true);
+        Potion_haste_1_Meta.setDisplayName("§c★ §6Potion du Mineur §c★");
+        List<String> Potion_haste_1_Lore = new ArrayList<>();
+        Potion_haste_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_1_Lore.add("§fCette potion vous fera oublier le");
+        Potion_haste_1_Lore.add("§fmétier de Mineur");
+        Potion_haste_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_1_Lore.add(Title_Color + "Qualité : " + Rarity_Commun);
+        Potion_haste_1_Lore.add(Title_Color + "Pouvoir : §cCélérité I");
+        Potion_haste_1_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_haste_1_Lore.add("§fBoie la potion et donne");
+        Potion_haste_1_Lore.add("§fl'effet célérité I.");
+        Potion_haste_1_Lore.add(Title_Color + "Caractéristique :");
+        Potion_haste_1_Lore.add("§a+ §e10% §bde vitesse d'attaque.");
+        Potion_haste_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_1_Meta.setLore(Potion_haste_1_Lore);
+        Potion_haste_1_Meta.setColor(Color.fromRGB(253, 255,0));
+        Potion_haste_1_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_haste_1_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_haste_1_Stack.setItemMeta(Potion_haste_1_Meta);
+        Potion_haste_1 = Potion_haste_1_Stack;
+    }
+
+    private static void CreatePotion_haste_2() {
+        ItemStack Potion_haste_2_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_haste_2_Meta = (PotionMeta) Potion_haste_2_Stack.getItemMeta();
+        PotionEffect Hast2Effect = PotionEffectType.FAST_DIGGING.createEffect( 1800, 1);
+        Objects.requireNonNull(Potion_haste_2_Meta).addCustomEffect(Hast2Effect, true);
+        Potion_haste_2_Meta.setDisplayName("§c★ §6Potion du Mineur II §c★");
+        List<String> Potion_haste_2_Lore = new ArrayList<>();
+        Potion_haste_2_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_2_Lore.add("§fCette potion vous fera oublier le");
+        Potion_haste_2_Lore.add("§fmétier de Mineur");
+        Potion_haste_2_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_2_Lore.add(Title_Color + "Qualité : " + Rarity_Commun);
+        Potion_haste_2_Lore.add(Title_Color + "Pouvoir : §cCélérité II");
+        Potion_haste_2_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_haste_2_Lore.add("§fBoie la potion et donne");
+        Potion_haste_2_Lore.add("§fl'effet célérité II.");
+        Potion_haste_2_Lore.add(Title_Color + "Caractéristique :");
+        Potion_haste_2_Lore.add("§a+ §e20% §bde vitesse d'attaque.");
+        Potion_haste_2_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_2_Meta.setLore(Potion_haste_2_Lore);
+        Potion_haste_2_Meta.setColor(Color.fromRGB(253, 255,0));
+        Potion_haste_2_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_haste_2_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_haste_2_Stack.setItemMeta(Potion_haste_2_Meta);
+        Potion_haste_2 = Potion_haste_2_Stack;
+    }
+
+    private static void CreatePotion_haste_3() {
+        ItemStack Potion_haste_3_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_haste_3_Meta = (PotionMeta) Potion_haste_3_Stack.getItemMeta();
+        PotionEffect Hast3Effect = PotionEffectType.FAST_DIGGING.createEffect( 1200, 2);
+        Objects.requireNonNull(Potion_haste_3_Meta).addCustomEffect(Hast3Effect, true);
+        Potion_haste_3_Meta.setDisplayName("§c★ §6Potion du Mineur III §c★");
+        List<String> Potion_haste_3_Lore = new ArrayList<>();
+        Potion_haste_3_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_3_Lore.add("§fCette potion vous fera oublier le");
+        Potion_haste_3_Lore.add("§fmétier de Mineur");
+        Potion_haste_3_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_3_Lore.add(Title_Color + "Qualité : " + Rarity_Commun);
+        Potion_haste_3_Lore.add(Title_Color + "Pouvoir : §cCélérité III");
+        Potion_haste_3_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_haste_3_Lore.add("§fBoie la potion et donne");
+        Potion_haste_3_Lore.add("§fl'effet célérité III.");
+        Potion_haste_3_Lore.add(Title_Color + "Caractéristique :");
+        Potion_haste_3_Lore.add("§a+ §e30% §bde vitesse d'attaque.");
+        Potion_haste_3_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_3_Meta.setLore(Potion_haste_3_Lore);
+        Potion_haste_3_Meta.setColor(Color.fromRGB(253, 255,0));
+        Potion_haste_3_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_haste_3_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_haste_3_Stack.setItemMeta(Potion_haste_3_Meta);
+        Potion_haste_3 = Potion_haste_3_Stack;
+    }
+
+    private static void CreatePotion_luck_1() {
+        ItemStack Potion_luck_1_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_luck_1_Meta = (PotionMeta) Potion_luck_1_Stack.getItemMeta();
+        PotionEffect luck1Effect = PotionEffectType.LUCK.createEffect( 2400, 0);
+        Objects.requireNonNull(Potion_luck_1_Meta).addCustomEffect(luck1Effect, true);
+        Potion_luck_1_Meta.setDisplayName("§c★ §6Potion du Leprechaun §c★");
+        List<String> Potion_luck_1_Lore = new ArrayList<>();
+        Potion_luck_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_1_Lore.add("§fCette potion vous apportera");
+        Potion_luck_1_Lore.add("§fchance et bonheur !");
+        Potion_luck_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_1_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+        Potion_luck_1_Lore.add(Title_Color + "Pouvoir : §cChance I");
+        Potion_luck_1_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_luck_1_Lore.add("§fBoie la potion et donne");
+        Potion_luck_1_Lore.add("§fl'effet chance I.");
+        Potion_luck_1_Lore.add(Title_Color + "Caractéristique :");
+        Potion_luck_1_Lore.add("§a+ §e1 §bde chance.");
+        Potion_luck_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_1_Meta.setLore(Potion_luck_1_Lore);
+        Potion_luck_1_Meta.setColor(Color.fromRGB(13, 255,0));
+        Potion_luck_1_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_luck_1_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_luck_1_Stack.setItemMeta(Potion_luck_1_Meta);
+        Potion_luck_1 = Potion_luck_1_Stack;
+    }
+
+    private static void CreatePotion_luck_2() {
+        ItemStack Potion_luck_2_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_luck_2_Meta = (PotionMeta) Potion_luck_2_Stack.getItemMeta();
+        PotionEffect Hast2Effect = PotionEffectType.LUCK.createEffect( 1800, 1);
+        Objects.requireNonNull(Potion_luck_2_Meta).addCustomEffect(Hast2Effect, true);
+        Potion_luck_2_Meta.setDisplayName("§c★ §6Potion du Leprechaun II §c★");
+        List<String> Potion_luck_2_Lore = new ArrayList<>();
+        Potion_luck_2_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_2_Lore.add("§fCette potion vous apportera");
+        Potion_luck_2_Lore.add("§fchance et bonheur !");
+        Potion_luck_2_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_2_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+        Potion_luck_2_Lore.add(Title_Color + "Pouvoir : §cChance II");
+        Potion_luck_2_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_luck_2_Lore.add("§fBoie la potion et donne");
+        Potion_luck_2_Lore.add("§fl'effet chance II.");
+        Potion_luck_2_Lore.add(Title_Color + "Caractéristique :");
+        Potion_luck_2_Lore.add("§a+ §e2 §bde chance.");
+        Potion_luck_2_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_2_Meta.setLore(Potion_luck_2_Lore);
+        Potion_luck_2_Meta.setColor(Color.fromRGB(13, 255,0));
+        Potion_luck_2_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_luck_2_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_luck_2_Stack.setItemMeta(Potion_luck_2_Meta);
+        Potion_luck_2 = Potion_luck_2_Stack;
+    }
+
+    private static void CreatePotion_luck_3() {
+        ItemStack Potion_luck_3_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_luck_3_Meta = (PotionMeta) Potion_luck_3_Stack.getItemMeta();
+        PotionEffect Hast3Effect = PotionEffectType.LUCK.createEffect( 1200, 2);
+        Objects.requireNonNull(Potion_luck_3_Meta).addCustomEffect(Hast3Effect, true);
+        Potion_luck_3_Meta.setDisplayName("§c★ §6Potion du Leprechaun III §c★");
+        List<String> Potion_luck_3_Lore = new ArrayList<>();
+        Potion_luck_3_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_3_Lore.add("§fCette potion vous apportera");
+        Potion_luck_3_Lore.add("§fchance et bonheur !");
+        Potion_luck_3_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_3_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+        Potion_luck_3_Lore.add(Title_Color + "Pouvoir : §cChance III");
+        Potion_luck_3_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_luck_3_Lore.add("§fBoie la potion et donne");
+        Potion_luck_3_Lore.add("§fl'effet chance III.");
+        Potion_luck_3_Lore.add(Title_Color + "Caractéristique :");
+        Potion_luck_3_Lore.add("§a+ §e3 §bde chance.");
+        Potion_luck_3_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_3_Meta.setLore(Potion_luck_3_Lore);
+        Potion_luck_3_Meta.setColor(Color.fromRGB(13, 255,0));
+        Potion_luck_3_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_luck_3_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_luck_3_Stack.setItemMeta(Potion_luck_3_Meta);
+        Potion_luck_3 = Potion_luck_3_Stack;
+    }
 }
 
 

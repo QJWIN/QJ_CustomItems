@@ -68,6 +68,24 @@ commands:
   Give_InfiniteEmptyBucket:
     description: give a InfiniteEmptyBucket to the player.
     usage: /<command>
+  Give_Potion_haste_1:
+    description: give a haste 1 potion to the player.
+    usage: /<command>
+  Give_Potion_haste_2:
+    description: give a haste 2 potion to the player.
+    usage: /<command>
+  Give_Potion_haste_3:
+    description: give a haste 3 potion to the player.
+    usage: /<command>
+  Give_Potion_luck_1:
+    description: give a luck 1 potion to the player.
+    usage: /<command>
+  Give_Potion_luck_2:
+    description: give a luck 2 potion to the player.
+    usage: /<command>
+  Give_Potion_luck_3:
+    description: give a luck 3 potion to the player.
+    usage: /<command>
   Give_All:
     description: give all items to the player.
     usage: /<command>

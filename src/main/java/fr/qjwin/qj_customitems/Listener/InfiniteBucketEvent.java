@@ -38,14 +38,15 @@ public class InfiniteBucketEvent implements Listener {
     @EventHandler
     public void onBucketFill(PlayerBucketFillEvent eventArray) {
 
-        int getHitBlockX = eventArray.getBlockClicked().getX() + eventArray.getBlockFace().getModX();
-        int getHitBlockY = eventArray.getBlockClicked().getY() + eventArray.getBlockFace().getModY();
-        int getHitBlockZ = eventArray.getBlockClicked().getZ() + eventArray.getBlockFace().getModZ();
+        int getHitBlockX = eventArray.getBlockClicked().getX();
+        int getHitBlockY = eventArray.getBlockClicked().getY();
+        int getHitBlockZ = eventArray.getBlockClicked().getZ();
         Player player = eventArray.getPlayer();
         ItemStack emptybukket = player.getInventory().getItemInMainHand();
         ItemMeta emptybukket_meta = emptybukket.getItemMeta();
+
         if(emptybukket_meta != null && emptybukket_meta.getLore() != null && emptybukket_meta.getLore().contains(Title_Color + "ID : §fIB_01")) {
-            eventArray.getPlayer().getWorld().getBlockAt(getHitBlockX,getHitBlockY - 1,getHitBlockZ).setType(Material.AIR);
+            eventArray.getPlayer().getWorld().getBlockAt(getHitBlockX,getHitBlockY ,getHitBlockZ).setType(Material.AIR);
             eventArray.setCancelled(true);
         }
 
