@@ -51,7 +51,7 @@ public class ServerGiftEvent implements Listener {
         if (eventArray.getAction().equals(Action.RIGHT_CLICK_AIR)) {
             if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fSG_01")) {
                 Random getRandomizedNumber = new Random();
-                eventArray.getPlayer().getInventory().removeItem(ItemsManager.ServerGift);
+                eventArray.getPlayer().getInventory().getItemInMainHand().setAmount( eventArray.getPlayer().getInventory().getItemInMainHand().getAmount() - 1);
                 eventArray.getPlayer().getInventory().addItem(ItemsGiftArray[getRandomizedNumber.nextInt(ItemsGiftArray.length)]);
                 player_instance.sendMessage("§aVous vennez de reçevoir un Cadeau !");
                 eventArray.setCancelled(true);
@@ -61,7 +61,7 @@ public class ServerGiftEvent implements Listener {
         if (eventArray.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fSG_01")) {
                 Random getRandomizedNumber = new Random();
-                eventArray.getPlayer().getInventory().removeItem(ItemsManager.ServerGift);
+                eventArray.getPlayer().getInventory().getItemInMainHand().setAmount( eventArray.getPlayer().getInventory().getItemInMainHand().getAmount() - 1);
                 eventArray.getPlayer().getInventory().addItem(ItemsGiftArray[getRandomizedNumber.nextInt(ItemsGiftArray.length)]);
                 player_instance.sendMessage("§aVous vennez de reçevoir un Cadeau !");
                 eventArray.setCancelled(true);

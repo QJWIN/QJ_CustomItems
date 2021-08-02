@@ -2,6 +2,7 @@ package fr.qjwin.qj_customitems;
 
 import fr.qjwin.qj_customitems.Commands.GiveCommand;
 import fr.qjwin.qj_customitems.Listener.*;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
@@ -23,7 +24,6 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("Give_ServerGift")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_ExplosiveBow")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_InfiniteWaterBucket")).setExecutor(new GiveCommand());
-
         Objects.requireNonNull(this.getCommand("Give_InfiniteLavaBucket")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_MachineGunBow")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_MultiBreakPickaxe")).setExecutor(new GiveCommand());
@@ -35,7 +35,6 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("Give_UndeadSword")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Dynamite")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_LightingSword")).setExecutor(new GiveCommand());
-
         Objects.requireNonNull(this.getCommand("Give_AutoSmeltPickaxe")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_FireBall")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Grenade")).setExecutor(new GiveCommand());
@@ -47,18 +46,21 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("Give_Potion_haste_2")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Potion_haste_3")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Potion_luck_1")).setExecutor(new GiveCommand());
-
         Objects.requireNonNull(this.getCommand("Give_Potion_luck_2")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Potion_luck_3")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(this.getCommand("Give_All")).setExecutor(new GiveCommand());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 28/28 ==> OK");
+        Objects.requireNonNull(this.getCommand("Give_Potion_Resistance_1")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Potion_Beauty_1")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Potion_Saturation_1")).setExecutor(new GiveCommand());
+
+        Objects.requireNonNull(this.getCommand("Give_Potion_Absorption_1")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Potion_HealBoost_1")).setExecutor(new GiveCommand());
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 33/33 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ServerGiftEvent(), this);
         getServer().getPluginManager().registerEvents(new GrapplingEvent(), this);
         getServer().getPluginManager().registerEvents(new InfiniteBucketEvent(), this);
         getServer().getPluginManager().registerEvents(new ExplosivBowEvent(), this);
         getServer().getPluginManager().registerEvents(new TeleportSwordEvent(), this);
-
         getServer().getPluginManager().registerEvents(new MultiBreakPickaxeEvent(), this);
         getServer().getPluginManager().registerEvents(new MachineGunBowEvent(this), this);
         getServer().getPluginManager().registerEvents(new CresusPickaxeEvent(), this);
@@ -70,7 +72,6 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new DynamiteEvent(), this);
         getServer().getPluginManager().registerEvents(new LightingSwordEvent(), this);
         getServer().getPluginManager().registerEvents(new AutoSmeltPickaxeEvent(), this);
-
         getServer().getPluginManager().registerEvents(new GrenadeEvent(), this);
         getServer().getPluginManager().registerEvents(new FireBallEvent(this), this);
         getServer().getPluginManager().registerEvents(new HermesShoesEvent(), this);

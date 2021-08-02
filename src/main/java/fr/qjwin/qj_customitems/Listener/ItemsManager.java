@@ -78,6 +78,13 @@ public class ItemsManager {
     public static ItemStack Potion_luck_2;
     public static ItemStack Potion_luck_3;
 
+    public static ItemStack Potion_Resistance_1;
+    public static ItemStack Potion_Beauty_1;
+    public static ItemStack Potion_Saturation_1;
+    public static ItemStack Potion_Absorption_1;
+    public static ItemStack Potion_HealBoost_1;
+    public static ItemStack Potion_Hero_1;
+
     public static void init (){
         CreateGrapplingHook();
         CreateTeleportSword();
@@ -106,6 +113,12 @@ public class ItemsManager {
         CreatePotion_luck_1();
         CreatePotion_luck_2();
         CreatePotion_luck_3();
+        CreatePotion_Resistance_1();
+        CreatePotion_Beauty_1();
+        CreatePotion_Saturation_1();
+        CreatePotion_Absorption_1();
+        CreatePotion_HealBoost_1();
+        CreatePotion_Hero_1();
     }
 
     private static void CreateGrapplingHook(){
@@ -699,6 +712,7 @@ public class ItemsManager {
         Potion_haste_1_Meta.setDisplayName("§c★ §6Potion du Mineur §c★");
         List<String> Potion_haste_1_Lore = new ArrayList<>();
         Potion_haste_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_1_Lore.add(Title_Color + "Description :");
         Potion_haste_1_Lore.add("§fCette potion vous fera oublier le");
         Potion_haste_1_Lore.add("§fmétier de Mineur");
         Potion_haste_1_Lore.add(Separator_Color + "§m--------------------------------");
@@ -726,6 +740,7 @@ public class ItemsManager {
         Potion_haste_2_Meta.setDisplayName("§c★ §6Potion du Mineur II §c★");
         List<String> Potion_haste_2_Lore = new ArrayList<>();
         Potion_haste_2_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_2_Lore.add(Title_Color + "Description :");
         Potion_haste_2_Lore.add("§fCette potion vous fera oublier le");
         Potion_haste_2_Lore.add("§fmétier de Mineur");
         Potion_haste_2_Lore.add(Separator_Color + "§m--------------------------------");
@@ -753,6 +768,7 @@ public class ItemsManager {
         Potion_haste_3_Meta.setDisplayName("§c★ §6Potion du Mineur III §c★");
         List<String> Potion_haste_3_Lore = new ArrayList<>();
         Potion_haste_3_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_haste_3_Lore.add(Title_Color + "Description :");
         Potion_haste_3_Lore.add("§fCette potion vous fera oublier le");
         Potion_haste_3_Lore.add("§fmétier de Mineur");
         Potion_haste_3_Lore.add(Separator_Color + "§m--------------------------------");
@@ -780,6 +796,7 @@ public class ItemsManager {
         Potion_luck_1_Meta.setDisplayName("§c★ §6Potion du Leprechaun §c★");
         List<String> Potion_luck_1_Lore = new ArrayList<>();
         Potion_luck_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_1_Lore.add(Title_Color + "Description :");
         Potion_luck_1_Lore.add("§fCette potion vous apportera");
         Potion_luck_1_Lore.add("§fchance et bonheur !");
         Potion_luck_1_Lore.add(Separator_Color + "§m--------------------------------");
@@ -807,6 +824,7 @@ public class ItemsManager {
         Potion_luck_2_Meta.setDisplayName("§c★ §6Potion du Leprechaun II §c★");
         List<String> Potion_luck_2_Lore = new ArrayList<>();
         Potion_luck_2_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_2_Lore.add(Title_Color + "Description :");
         Potion_luck_2_Lore.add("§fCette potion vous apportera");
         Potion_luck_2_Lore.add("§fchance et bonheur !");
         Potion_luck_2_Lore.add(Separator_Color + "§m--------------------------------");
@@ -834,6 +852,7 @@ public class ItemsManager {
         Potion_luck_3_Meta.setDisplayName("§c★ §6Potion du Leprechaun III §c★");
         List<String> Potion_luck_3_Lore = new ArrayList<>();
         Potion_luck_3_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_luck_3_Lore.add(Title_Color + "Description :");
         Potion_luck_3_Lore.add("§fCette potion vous apportera");
         Potion_luck_3_Lore.add("§fchance et bonheur !");
         Potion_luck_3_Lore.add(Separator_Color + "§m--------------------------------");
@@ -852,6 +871,165 @@ public class ItemsManager {
         Potion_luck_3_Stack.setItemMeta(Potion_luck_3_Meta);
         Potion_luck_3 = Potion_luck_3_Stack;
     }
+
+    private static void CreatePotion_Resistance_1() {
+        ItemStack Potion_Resistance_1_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_Resistance_1_Meta = (PotionMeta) Potion_Resistance_1_Stack.getItemMeta();
+        PotionEffect Hast3Effect = PotionEffectType.DAMAGE_RESISTANCE.createEffect( 1200, 0);
+        Objects.requireNonNull(Potion_Resistance_1_Meta).addCustomEffect(Hast3Effect, true);
+        Potion_Resistance_1_Meta.setDisplayName("§c★ §6Potion de résistance I §c★");
+        List<String> Potion_Resistance_1_Lore = new ArrayList<>();
+        Potion_Resistance_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Resistance_1_Lore.add(Title_Color + "Description :");
+        Potion_Resistance_1_Lore.add("§fCette potion vous permettera");
+        Potion_Resistance_1_Lore.add("§fde résisté au attaque très");
+        Potion_Resistance_1_Lore.add("§fpuissante !");
+        Potion_Resistance_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Resistance_1_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+        Potion_Resistance_1_Lore.add(Title_Color + "Pouvoir : §cRésistance I");
+        Potion_Resistance_1_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_Resistance_1_Lore.add("§fBoie la potion et donne");
+        Potion_Resistance_1_Lore.add("§fl'effet résistance I.");
+        Potion_Resistance_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Resistance_1_Meta.setLore(Potion_Resistance_1_Lore);
+        Potion_Resistance_1_Meta.setColor(Color.fromRGB(186, 98,79));
+        Potion_Resistance_1_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_Resistance_1_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_Resistance_1_Stack.setItemMeta(Potion_Resistance_1_Meta);
+        Potion_Resistance_1 = Potion_Resistance_1_Stack;
+    }
+
+    private static void CreatePotion_Beauty_1() {
+        ItemStack Potion_beauty_1_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_beauty_1_Meta = (PotionMeta) Potion_beauty_1_Stack.getItemMeta();
+        PotionEffect Beauty1Effect = PotionEffectType.GLOWING.createEffect( 1200, 0);
+        Objects.requireNonNull(Potion_beauty_1_Meta).addCustomEffect(Beauty1Effect, true);
+        Potion_beauty_1_Meta.setDisplayName("§c★ §6Potion de brillance I §c★");
+        List<String> Potion_beauty_1_Lore = new ArrayList<>();
+        Potion_beauty_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_beauty_1_Lore.add(Title_Color + "Description :");
+        Potion_beauty_1_Lore.add("§fCette potion vous fera brillé");
+        Potion_beauty_1_Lore.add("§fdans toutes les circonstances !");
+        Potion_beauty_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_beauty_1_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+        Potion_beauty_1_Lore.add(Title_Color + "Pouvoir : §cBrillance I");
+        Potion_beauty_1_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_beauty_1_Lore.add("§fBoie la potion et donne");
+        Potion_beauty_1_Lore.add("§fl'effet brillance I.");
+        Potion_beauty_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_beauty_1_Meta.setLore(Potion_beauty_1_Lore);
+        Potion_beauty_1_Meta.setColor(Color.fromRGB(157, 185,121));
+        Potion_beauty_1_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_beauty_1_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_beauty_1_Stack.setItemMeta(Potion_beauty_1_Meta);
+        Potion_Beauty_1 = Potion_beauty_1_Stack;
+    }
+
+    private static void CreatePotion_Saturation_1() {
+        ItemStack Potion_Saturation_1_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_Saturation_1_Meta = (PotionMeta) Potion_Saturation_1_Stack.getItemMeta();
+        PotionEffect Saturation1Effect = PotionEffectType.SATURATION.createEffect( 1200, 0);
+        Objects.requireNonNull(Potion_Saturation_1_Meta).addCustomEffect(Saturation1Effect, true);
+        Potion_Saturation_1_Meta.setDisplayName("§c★ §6Potion de saturation I §c★");
+        List<String> Potion_Saturation_1_Lore = new ArrayList<>();
+        Potion_Saturation_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Saturation_1_Lore.add(Title_Color + "Description :");
+        Potion_Saturation_1_Lore.add("§fCette potion vous remplira");
+        Potion_Saturation_1_Lore.add("§fle ventre pendant longtemp !");
+        Potion_Saturation_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Saturation_1_Lore.add(Title_Color + "Qualité : " + Rarity_Epic);
+        Potion_Saturation_1_Lore.add(Title_Color + "Pouvoir : §cSaturation I");
+        Potion_Saturation_1_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_Saturation_1_Lore.add("§fBoie la potion et donne");
+        Potion_Saturation_1_Lore.add("§fl'effet saturation I.");
+        Potion_Saturation_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Saturation_1_Meta.setLore(Potion_Saturation_1_Lore);
+        Potion_Saturation_1_Meta.setColor(Color.fromRGB(249, 26,38));
+        Potion_Saturation_1_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_Saturation_1_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_Saturation_1_Stack.setItemMeta(Potion_Saturation_1_Meta);
+        Potion_Saturation_1 = Potion_Saturation_1_Stack;
+    }
+
+    private static void CreatePotion_Absorption_1() {
+        ItemStack Potion_Absorption_1_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_Absorption_1_Meta = (PotionMeta) Potion_Absorption_1_Stack.getItemMeta();
+        PotionEffect Absorption1Effect = PotionEffectType.SATURATION.createEffect( 1200, 0);
+        Objects.requireNonNull(Potion_Absorption_1_Meta).addCustomEffect(Absorption1Effect, true);
+        Potion_Absorption_1_Meta.setDisplayName("§c★ §6Potion de absorption I §c★");
+        List<String> Potion_Absorption_1_Lore = new ArrayList<>();
+        Potion_Absorption_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Absorption_1_Lore.add(Title_Color + "Description :");
+        Potion_Absorption_1_Lore.add("§fCette potion vous aidera");
+        Potion_Absorption_1_Lore.add("§fà amortir les chocs !");
+        Potion_Absorption_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Absorption_1_Lore.add(Title_Color + "Qualité : " + Rarity_Epic);
+        Potion_Absorption_1_Lore.add(Title_Color + "Pouvoir : §cAbsorption I");
+        Potion_Absorption_1_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_Absorption_1_Lore.add("§fBoie la potion et donne");
+        Potion_Absorption_1_Lore.add("§fl'effet absorption I.");
+        Potion_Absorption_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Absorption_1_Meta.setLore(Potion_Absorption_1_Lore);
+        Potion_Absorption_1_Meta.setColor(Color.fromRGB(249, 26,38));
+        Potion_Absorption_1_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_Absorption_1_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_Absorption_1_Stack.setItemMeta(Potion_Absorption_1_Meta);
+        Potion_Absorption_1 = Potion_Absorption_1_Stack;
+    }
+
+    private static void CreatePotion_HealBoost_1() {
+        ItemStack Potion_HealBoost_1_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_HealBoost_1_Meta = (PotionMeta) Potion_HealBoost_1_Stack.getItemMeta();
+        PotionEffect HealBoost1Effect = PotionEffectType.HEALTH_BOOST.createEffect( 1200, 0);
+        Objects.requireNonNull(Potion_HealBoost_1_Meta).addCustomEffect(HealBoost1Effect, true);
+        Potion_HealBoost_1_Meta.setDisplayName("§c★ §6Potion de boost de vie I §c★");
+        List<String> Potion_HealBoost_1_Lore = new ArrayList<>();
+        Potion_HealBoost_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_HealBoost_1_Lore.add(Title_Color + "Description :");
+        Potion_HealBoost_1_Lore.add("§fCette potion vous donnera");
+        Potion_HealBoost_1_Lore.add("§fune vie plus longue !");
+        Potion_HealBoost_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_HealBoost_1_Lore.add(Title_Color + "Qualité : " + Rarity_Epic);
+        Potion_HealBoost_1_Lore.add(Title_Color + "Pouvoir : §cBoost de vie I");
+        Potion_HealBoost_1_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_HealBoost_1_Lore.add("§fBoie la potion et donne");
+        Potion_HealBoost_1_Lore.add("§fl'effet boost de vie I.");
+        Potion_HealBoost_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_HealBoost_1_Meta.setLore(Potion_HealBoost_1_Lore);
+        Potion_HealBoost_1_Meta.setColor(Color.fromRGB(255, 148,41));
+        Potion_HealBoost_1_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_HealBoost_1_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_HealBoost_1_Stack.setItemMeta(Potion_HealBoost_1_Meta);
+        Potion_HealBoost_1 = Potion_HealBoost_1_Stack;
+    }
+
+    private static void CreatePotion_Hero_1() {
+        ItemStack Potion_Hero_1_Stack = new ItemStack(Material.POTION,1);
+        PotionMeta Potion_Hero_1_Meta = (PotionMeta) Potion_Hero_1_Stack.getItemMeta();
+        PotionEffect Hero1Effect = PotionEffectType.HEALTH_BOOST.createEffect( 1200, 0);
+        Objects.requireNonNull(Potion_Hero_1_Meta).addCustomEffect(Hero1Effect, true);
+        Potion_Hero_1_Meta.setDisplayName("§c★ §6Potion des hero's I §c★");
+        List<String> Potion_Hero_1_Lore = new ArrayList<>();
+        Potion_Hero_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Hero_1_Lore.add(Title_Color + "Description :");
+        Potion_Hero_1_Lore.add("§fCette potion vous apportera");
+        Potion_Hero_1_Lore.add("§fune grande gloire dans votre");
+        Potion_Hero_1_Lore.add("§fville !");
+        Potion_Hero_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Hero_1_Lore.add(Title_Color + "Qualité : " + Rarity_Legendary);
+        Potion_Hero_1_Lore.add(Title_Color + "Pouvoir : §cHero's I");
+        Potion_Hero_1_Lore.add(Title_Color + "Effet -> §fClique §adroit §f:");
+        Potion_Hero_1_Lore.add("§fBoie la potion et donne");
+        Potion_Hero_1_Lore.add("§fl'effet Hero's I.");
+        Potion_Hero_1_Lore.add(Separator_Color + "§m--------------------------------");
+        Potion_Hero_1_Meta.setLore(Potion_Hero_1_Lore);
+        Potion_Hero_1_Meta.setColor(Color.fromRGB(81, 255,51));
+        Potion_Hero_1_Meta.addItemFlags(HIDE_POTION_EFFECTS);
+        Potion_Hero_1_Meta.addItemFlags(HIDE_ATTRIBUTES);
+        Potion_Hero_1_Stack.setItemMeta(Potion_Hero_1_Meta);
+        Potion_Hero_1 = Potion_Hero_1_Stack;
+    }
+
 }
 
 

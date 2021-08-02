@@ -86,8 +86,18 @@ commands:
   Give_Potion_luck_3:
     description: give a luck 3 potion to the player.
     usage: /<command>
-  Give_All:
-    description: give all items to the player.
+  Give_Potion_Resistance_1:
+    description: give a resistance 1 potion to the player.
     usage: /<command>
-
-
+  Give_Potion_Beauty_1:
+    description: give a Beauty 1 potion to the player.
+    usage: /<command>
+  Give_Potion_Saturation_1:
+    description: give a Saturation 1 potion to the player.
+    usage: /<command>
+  Give_Potion_Absorption_1:
+    description: give a Absorption 1 potion to the player.
+    usage: /<command>
+  Give_Potion_HealBoost_1:
+    description: give a HealBoost 1 potion to the player.
+    usage: /<command>

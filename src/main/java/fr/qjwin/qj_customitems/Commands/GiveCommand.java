@@ -10,6 +10,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 @SuppressWarnings("NullableProblems")
 public class GiveCommand implements CommandExecutor {
@@ -106,35 +107,22 @@ public class GiveCommand implements CommandExecutor {
             if (cmd.getName().equalsIgnoreCase("Give_Potion_luck_3")){
                 player_instance.getInventory().addItem(ItemsManager.Potion_luck_3);
             }
-            if (cmd.getName().equalsIgnoreCase("Give_All")){
-                player_instance.getInventory().addItem(ItemsManager.GrapplingHook);
-                player_instance.getInventory().addItem(ItemsManager.TeleportSword);
-                player_instance.getInventory().addItem(ItemsManager.ServerGift);
-                player_instance.getInventory().addItem(ItemsManager.ExplosiveBow);
-                player_instance.getInventory().addItem(ItemsManager.InfiniteWaterBucket);
-                player_instance.getInventory().addItem(ItemsManager.InfiniteLavaBucket);
-                player_instance.getInventory().addItem(ItemsManager.MachineGunBow);
-                player_instance.getInventory().addItem(ItemsManager.MultiBreakPickaxe);
-                player_instance.getInventory().addItem(ItemsManager.CresusPickaxe);
-                player_instance.getInventory().addItem(ItemsManager.Boomerang);
-                player_instance.getInventory().addItem(ItemsManager.HomingBow);
-                player_instance.getInventory().addItem(ItemsManager.ThrowingAxe);
-                player_instance.getInventory().addItem(ItemsManager.UndeadSword);
-                player_instance.getInventory().addItem(ItemsManager.Dynamite);
-                player_instance.getInventory().addItem(ItemsManager.LightingSword);
-                player_instance.getInventory().addItem(ItemsManager.AutoSmeltPickaxe);
-                player_instance.getInventory().addItem(ItemsManager.FireBall);
-                player_instance.getInventory().addItem(ItemsManager.Grenade);
-                player_instance.getInventory().addItem(ItemsManager.HermesShoes);
-                player_instance.getInventory().addItem(ItemsManager.Landmine);
-                player_instance.getInventory().addItem(ItemsManager.InfiniteEmptyBucket);
-                player_instance.getInventory().addItem(ItemsManager.Potion_haste_1);
-                player_instance.getInventory().addItem(ItemsManager.Potion_haste_2);
-                player_instance.getInventory().addItem(ItemsManager.Potion_haste_3);
-                player_instance.getInventory().addItem(ItemsManager.Potion_luck_1);
-                player_instance.getInventory().addItem(ItemsManager.Potion_luck_2);
-                player_instance.getInventory().addItem(ItemsManager.Potion_luck_3);
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_Resistance_1")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_Resistance_1);
             }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_Beauty_1")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_Beauty_1);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_Saturation_1")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_Saturation_1);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_Absorption_1")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_Absorption_1);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Potion_HealBoost_1")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_HealBoost_1);
+            }
+
         } else {
             sender.sendMessage("You are not allowed to use this command ! Only opérator can do this !");
         }
