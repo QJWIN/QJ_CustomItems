@@ -101,3 +101,42 @@ commands:
   Give_Potion_HealBoost_1:
     description: give a HealBoost 1 potion to the player.
     usage: /<command>
+  Give_Potions:
+    description: give all potions to the player.
+    usage: /<command>
+  Give_Hat_Farmer:
+    description: give a Hat_Farmer to the player.
+    usage: /<command>
+  Give_Hat_Arrow:
+    description: give a Hat_Arrow to the player.
+    usage: /<command>
+  Give_Hat_Fes:
+    description: give a Hat_Fes to the player.
+    usage: /<command>
+  Give_Hat_Indian:
+    description: give a Hat_Indian to the player.
+    usage: /<command>
+  Give_Hat_Dandy_RED:
+    description: give a Hat_Dandy_RED to the player.
+    usage: /<command>
+  Give_Hat_Dandy_LBLUE:
+    description: give a Hat_Dandy_LBLUE to the player.
+    usage: /<command>
+  Give_Hat_Dandy_YELLOW:
+    description: give a Hat_Dandy_YELLOW to the player.
+    usage: /<command>
+  Give_Hat_Dandy_LIME:
+    description: give a Hat_Dandy_LIME to the player.
+    usage: /<command>
+  Give_Hat_Dandy_RAINBOW:
+    description: give a Hat_Dandy_RAINBOW to the player.
+    usage: /<command>
+  Give_Hat_Dandy_GLASS:
+    description: give a Hat_Dandy_GLASS to the player.
+    usage: /<command>
+  Give_Hat_Squid:
+    description: give a Hat_Squid to the player.
+    usage: /<command>
+  Give_Hats:
+    description: give all Hat to the player.
+    usage: /<command>

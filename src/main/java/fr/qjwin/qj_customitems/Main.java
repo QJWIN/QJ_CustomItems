@@ -2,7 +2,6 @@ package fr.qjwin.qj_customitems;
 
 import fr.qjwin.qj_customitems.Commands.GiveCommand;
 import fr.qjwin.qj_customitems.Listener.*;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
@@ -54,7 +53,21 @@ public final class Main extends JavaPlugin {
 
         Objects.requireNonNull(this.getCommand("Give_Potion_Absorption_1")).setExecutor(new GiveCommand());
         Objects.requireNonNull(this.getCommand("Give_Potion_HealBoost_1")).setExecutor(new GiveCommand());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 33/33 ==> OK");
+        Objects.requireNonNull(this.getCommand("Give_Potions")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Farmer")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Arrow")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Fes")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Indian")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Dandy_RED")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Dandy_LBLUE")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Dandy_YELLOW")).setExecutor(new GiveCommand());
+
+        Objects.requireNonNull(this.getCommand("Give_Hat_Dandy_LIME")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Dandy_RAINBOW")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Dandy_GLASS")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hat_Squid")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(this.getCommand("Give_Hats")).setExecutor(new GiveCommand());
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 45/45 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ServerGiftEvent(), this);
         getServer().getPluginManager().registerEvents(new GrapplingEvent(), this);

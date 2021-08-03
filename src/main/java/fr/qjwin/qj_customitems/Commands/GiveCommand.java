@@ -10,7 +10,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 @SuppressWarnings("NullableProblems")
 public class GiveCommand implements CommandExecutor {
@@ -121,6 +120,65 @@ public class GiveCommand implements CommandExecutor {
             }
             if (cmd.getName().equalsIgnoreCase("Give_Potion_HealBoost_1")){
                 player_instance.getInventory().addItem(ItemsManager.Potion_HealBoost_1);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Potions")){
+                player_instance.getInventory().addItem(ItemsManager.Potion_haste_1);
+                player_instance.getInventory().addItem(ItemsManager.Potion_haste_2);
+                player_instance.getInventory().addItem(ItemsManager.Potion_haste_3);
+                player_instance.getInventory().addItem(ItemsManager.Potion_luck_1);
+                player_instance.getInventory().addItem(ItemsManager.Potion_luck_2);
+                player_instance.getInventory().addItem(ItemsManager.Potion_luck_3);
+                player_instance.getInventory().addItem(ItemsManager.Potion_Resistance_1);
+                player_instance.getInventory().addItem(ItemsManager.Potion_Beauty_1);
+                player_instance.getInventory().addItem(ItemsManager.Potion_Saturation_1);
+                player_instance.getInventory().addItem(ItemsManager.Potion_Absorption_1);
+                player_instance.getInventory().addItem(ItemsManager.Potion_HealBoost_1);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Farmer")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Farmer);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Arrow")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Arrow);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Fes")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Fes);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Indian")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Indian);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Dandy_RED")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_RED);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Dandy_LBLUE")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_LBLUE);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Dandy_YELLOW")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_YELLOW);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Dandy_LIME")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_LIME);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Dandy_RAINBOW")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_RAINBOW);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Dandy_GLASS")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_GLASS);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hat_Squid")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Squid);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Hats")){
+                player_instance.getInventory().addItem(ItemsManager.Hat_Farmer);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Arrow);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Fes);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Indian);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_RED);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_LBLUE);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_YELLOW);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_LIME);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_RAINBOW);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_GLASS);
+                player_instance.getInventory().addItem(ItemsManager.Hat_Squid);
             }
 
         } else {
