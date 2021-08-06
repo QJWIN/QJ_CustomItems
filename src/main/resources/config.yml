@@ -12,14 +12,37 @@
 #
 #  ██████████ ██████████ ██████████ ██████████ ██████████ ██████████ ██████████ ██████████ ██████████ ██████████ ██████████ ██████████ ██████████ ██████████ ██████████
 # ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░ ░░░░░░░░░░
-
-Prefix: "§6QJ_C§3ustom§6I§3tems §6- "
+#
+#------------------------------------------------------------------------------------------------
+# QJ_CustomItems Plugin CONFIG file
+#------------------------------------------------------------------------------------------------
+# version of the config
 Version: 1.2.3
+#------------------------------------------------------------------------------------------------
 Main_Options:
+  #------------------------------------------------------------------------------------------------
+  # Prefix chat settings
+  Prefix_String: "§6QJ_C§3ustom§6I§3tems §6- "
+  #------------------------------------------------------------------------------------------------
+  # default activation of message onjoin and onquit in the chat
+  enable_welcome_message: false
+  #------------------------------------------------------------------------------------------------
+  # default options for silkspawner
   Silkspawner:
+    # enable the feature > true | disable to let use a another plugin > false
+    enable_silkspawner: true
+    # Drop spawner when breaking it : require pickaxe  ?
     Require_pickaxe: true
+    # Drop spawner when breaking it : require silktouch ?
     Require_silktouch: true
+  #------------------------------------------------------------------------------------------------
+  # default activation of player_head drop when killed by a another player #chance 0.01 = 1%
+  enable_beheading_player: true
+  beheading_chance: 0.03
+  #------------------------------------------------------------------------------------------------
+  # Undeadsword Damagemultiplier for mob in %
   Undeadsword:
     Damagemultiplier:
       Zombie: 25
       Skeleton: 35
+  #------------------------------------------------------------------------------------------------

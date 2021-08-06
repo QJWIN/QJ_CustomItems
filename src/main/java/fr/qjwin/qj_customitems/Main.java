@@ -1,8 +1,7 @@
 package fr.qjwin.qj_customitems;
 
 import fr.qjwin.qj_customitems.Commands.GiveCommand;
-import fr.qjwin.qj_customitems.Extras.SilkSpawnerEvent;
-import fr.qjwin.qj_customitems.Extras.TrashCanEvent;
+import fr.qjwin.qj_customitems.Extras.*;
 import fr.qjwin.qj_customitems.ListenerEvents.*;
 import fr.qjwin.qj_customitems.Managers.CooldownManager;
 import fr.qjwin.qj_customitems.Managers.CraftsManager;
@@ -120,8 +119,12 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new HermesShoesEvent(), getinstance);
         getServer().getPluginManager().registerEvents(new LandMineEvent(getinstance), getinstance);
         getServer().getPluginManager().registerEvents(new SilkSpawnerEvent(), getinstance);
+
         getServer().getPluginManager().registerEvents(new TrashCanEvent(getinstance), getinstance);
-        getServer().getLogger().info("QJ_CustomItems >>> initialize events 21/21 ==> OK");
+        getServer().getPluginManager().registerEvents(new AntiPlaceHatEvent(getinstance), getinstance);
+        getServer().getPluginManager().registerEvents(new PlayerBeheadingEvent(getinstance), getinstance);
+        getServer().getPluginManager().registerEvents(new PlayerJoinQuitMessageEvent(getinstance), getinstance);
+        getServer().getLogger().info("QJ_CustomItems >>> initialize events 24/24 ==> OK");
 
         CooldownManager.setupCooldown_grappling();
         CooldownManager.setupCooldown_teleportsword();

@@ -26,7 +26,12 @@ public class SilkSpawnerEvent implements Listener {
             return;
         }
 
-        String pluginPrefix = Main.getinstance.getConfig().getString("Prefix");
+        String pluginPrefix = Main.getinstance.getConfig().getString("Prefix_String");
+
+        if (!Main.getinstance.getConfig().getBoolean("enable_silkspawner")) {
+            Main.Generate_log(pluginPrefix + eventArray.getPlayer().getName() + " a cassé un spawner mais la feature silkpawner est sur false.");
+            return;
+        }
 
         if (eventArray.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
             Main.Generate_log(pluginPrefix + eventArray.getPlayer().getName() + " a cassé un spawner mais était en mode créatif.");
