@@ -3,7 +3,7 @@ Class Name : AutoSmeltPickaxeEvent
 From Package : fr.qjwin.qj_customitems.Listener
 Made by : QJWIN
 */
-package fr.qjwin.qj_customitems.Listener;
+package fr.qjwin.qj_customitems.ListenerEvents;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -17,7 +17,7 @@ import org.bukkit.inventory.Recipe;
 import java.util.Iterator;
 import java.util.Objects;
 
-import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+import static fr.qjwin.qj_customitems.Managers.ItemsManager.Title_Color;
 
 public class AutoSmeltPickaxeEvent implements Listener {
 

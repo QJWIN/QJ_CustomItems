@@ -3,7 +3,7 @@ Class Name : ExplosivBowEvent
 From Package : fr.qjwin.qj_customitems.Listener
 Made by : QJWIN
 */
-package fr.qjwin.qj_customitems.Listener;
+package fr.qjwin.qj_customitems.ListenerEvents;
 
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -15,7 +15,7 @@ import org.bukkit.event.entity.ProjectileHitEvent;
 
 import java.util.Objects;
 
-import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+import static fr.qjwin.qj_customitems.Managers.ItemsManager.Title_Color;
 
 public class ExplosivBowEvent implements Listener {
 

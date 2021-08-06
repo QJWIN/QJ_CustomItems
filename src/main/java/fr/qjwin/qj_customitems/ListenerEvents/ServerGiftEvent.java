@@ -3,7 +3,7 @@ Class Name : ItemsEvents
 From Package : fr.qjwin.qj_customitems.Listener
 Made by : QJWIN
 */
-package fr.qjwin.qj_customitems.Listener;
+package fr.qjwin.qj_customitems.ListenerEvents;
 
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 
-import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+import static fr.qjwin.qj_customitems.Managers.ItemsManager.Title_Color;
 
 public class ServerGiftEvent implements Listener {
 

@@ -1,9 +1,17 @@
 name: QJ_CustomItems
-version: 1.2.2
+version: 1.2.3
 main: fr.qjwin.qj_customitems.Main
 api-version: 1.16
 authors: [ QJWIN ]
+softdepend: [HolographicDisplays]
 description: Personal plugin for items with specials effects
+permissions:
+  silkspawner.allowdrop:
+    description: Lets the player get spawner.
+    default: true
+  trashcan.use:
+    description: Lets the use trashcan.
+    default: true
 commands:
   Give_GrapplingHook:
     description: give a grappling hook to the player.
@@ -139,4 +147,7 @@ commands:
     usage: /<command>
   Give_Hats:
     description: give all Hat to the player.
+    usage: /<command>
+  Give_TrashCan:
+    description: give a TrashCan to the player.
     usage: /<command>

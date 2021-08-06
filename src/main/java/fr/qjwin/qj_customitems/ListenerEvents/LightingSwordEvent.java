@@ -3,9 +3,9 @@ Class Name : LightingSwordEvent
 From Package : fr.qjwin.qj_customitems.Listener
 Made by : QJWIN
 */
-package fr.qjwin.qj_customitems.Listener;
+package fr.qjwin.qj_customitems.ListenerEvents;
 
-import fr.qjwin.qj_customitems.Cooldown;
+import fr.qjwin.qj_customitems.Managers.CooldownManager;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -17,7 +17,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.Objects;
 
-import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+import static fr.qjwin.qj_customitems.Managers.ItemsManager.Title_Color;
 
 public class LightingSwordEvent implements Listener {
 
@@ -43,7 +43,7 @@ public class LightingSwordEvent implements Listener {
             if(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null &&Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fLS_01")) {
 
 
-                if (Cooldown.checkCooldown_lightingsword(eventArray.getPlayer())) {
+                if (CooldownManager.checkCooldown_lightingsword(eventArray.getPlayer())) {
 
                     for (Entity entity : eventArray.getPlayer().getNearbyEntities(12, 12, 12)) {
                         if (entity instanceof LivingEntity) {
@@ -54,9 +54,9 @@ public class LightingSwordEvent implements Listener {
                         }
                     }
 
-                    Cooldown.setCooldown_lightingsword(player, 15);
+                    CooldownManager.setCooldown_lightingsword(player, 15);
                 } else {
-                    getMillisToSeconds = (int) ((Cooldown.cooldowns_lightingsword.get(player.getUniqueId()) - System.currentTimeMillis()) / 1000);
+                    getMillisToSeconds = (int) ((CooldownManager.cooldowns_lightingsword.get(player.getUniqueId()) - System.currentTimeMillis()) / 1000);
                     player.sendMessage("§aL'épée n'as pas encore rechargée Il reste §e" + getMillisToSeconds + " §asecondes.");
                 }
                 eventArray.setCancelled(true);

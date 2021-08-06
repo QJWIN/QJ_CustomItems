@@ -3,9 +3,10 @@ Class Name : LandMineEvent
 From Package : fr.qjwin.qj_customitems.Listener
 Made by : QJWIN
 */
-package fr.qjwin.qj_customitems.Listener;
+package fr.qjwin.qj_customitems.ListenerEvents;
 
 import fr.qjwin.qj_customitems.Main;
+import fr.qjwin.qj_customitems.Managers.ItemsManager;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -21,7 +22,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 import java.util.Collection;
 import java.util.Objects;
 
-import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+import static fr.qjwin.qj_customitems.Managers.ItemsManager.Title_Color;
 
 public class LandMineEvent implements Listener {
 
@@ -54,7 +55,7 @@ public class LandMineEvent implements Listener {
                     eventArray.setDropItems(false);
                     eventArray.getBlock().getWorld().dropItemNaturally(eventArray.getBlock().getLocation(), ItemsManager.Landmine);
                     breakedblock.removeMetadata("landmine", plugin);
-                    player.sendMessage("§c! Attention ! §fvous déterré une land mine appartenant à : §b" + landmineplacedBy + "§f, agissez avec prudence !");
+                    player.sendMessage("§c! Attention ! §fvous déterrez une land mine appartenant à : §b" + landmineplacedBy + "§f, agissez avec prudence !");
                 }
             } else {
                 Collection<ItemStack> drops = eventArray.getBlock().getDrops();
@@ -62,7 +63,7 @@ public class LandMineEvent implements Listener {
                     eventArray.setDropItems(false);
                     eventArray.getBlock().getWorld().dropItemNaturally(eventArray.getBlock().getLocation(), ItemsManager.Landmine);
                     breakedblock.removeMetadata("landmine", plugin);
-                    player.sendMessage("§c! Attention ! §fvous déterré votre land mine, agissez avec prudence !");
+                    player.sendMessage("§c! Attention ! §fvous déterrez votre land mine, agissez avec prudence !");
                 }
 
             }

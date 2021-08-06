@@ -3,7 +3,7 @@ Class Name : GrenadeEvent
 From Package : fr.qjwin.qj_customitems.Listener
 Made by : QJWIN
 */
-package fr.qjwin.qj_customitems.Listener;
+package fr.qjwin.qj_customitems.ListenerEvents;
 
 import org.bukkit.Location;
 
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+import static fr.qjwin.qj_customitems.Managers.ItemsManager.Title_Color;
 
 public class GrenadeEvent implements Listener {
 

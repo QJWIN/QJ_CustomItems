@@ -3,10 +3,9 @@ Class Name : TeleportSwordEvent
 From Package : fr.qjwin.qj_customitems.Listener
 Made by : QJWIN
 */
-package fr.qjwin.qj_customitems.Listener;
+package fr.qjwin.qj_customitems.ListenerEvents;
 
-import fr.qjwin.qj_customitems.Cooldown;
-import org.bukkit.ChatColor;
+import fr.qjwin.qj_customitems.Managers.CooldownManager;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -18,7 +17,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.Objects;
 
-import static fr.qjwin.qj_customitems.Listener.ItemsManager.Title_Color;
+import static fr.qjwin.qj_customitems.Managers.ItemsManager.Title_Color;
 
 public class TeleportSwordEvent implements Listener {
 
@@ -29,7 +28,7 @@ public class TeleportSwordEvent implements Listener {
         if (eventArray.getAction().equals(Action.RIGHT_CLICK_AIR)) {
             if (eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null && eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore() != null && Objects.requireNonNull(Objects.requireNonNull(eventArray.getPlayer().getInventory().getItemInMainHand().getItemMeta()).getLore()).contains(Title_Color + "ID : §fTS_01")) {
 
-                if (Cooldown.checkCooldown_teleportsword(eventArray.getPlayer())) {
+                if (CooldownManager.checkCooldown_teleportsword(eventArray.getPlayer())) {
                     Block Destination_Block = player_instance.getTargetBlock(null, 8);
                     Location Destination_Location = Destination_Block.getLocation();
                     float Destination_Pitch = player_instance.getEyeLocation().getPitch();
@@ -39,9 +38,9 @@ public class TeleportSwordEvent implements Listener {
                     Destination_Location.setYaw(Destination_Yaw);
                     player_instance.teleport(Destination_Location);
                     player_instance.playSound(player_instance.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 5, 5);
-                    Cooldown.setCooldown_teleportsword(eventArray.getPlayer(), 5);
+                    CooldownManager.setCooldown_teleportsword(eventArray.getPlayer(), 5);
                 } else {
-                    getMillisToSeconds = (int) ((Cooldown.cooldowns_teleportsword.get(player_instance.getUniqueId()) - System.currentTimeMillis()) / 1000);
+                    getMillisToSeconds = (int) ((CooldownManager.cooldowns_teleportsword.get(player_instance.getUniqueId()) - System.currentTimeMillis()) / 1000);
                     player_instance.sendMessage("§aL'épée n'as pas encore rechargée Il reste §e" + getMillisToSeconds + " §asecondes.");
                 }
                 eventArray.setCancelled(true);

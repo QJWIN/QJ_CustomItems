@@ -3,14 +3,14 @@ Class Name : Cooldown
 From Package : fr.qjwin.qj_customitems
 Made by : QJWIN
 */
-package fr.qjwin.qj_customitems;
+package fr.qjwin.qj_customitems.Managers;
 
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Cooldown {
+public class CooldownManager {
 
     public static HashMap<UUID, Double> cooldowns_grappin;
     public static HashMap<UUID, Double> cooldowns_teleportsword;

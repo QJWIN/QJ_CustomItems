@@ -5,7 +5,7 @@ Made by : QJWIN
 */
 package fr.qjwin.qj_customitems.Commands;
 
-import fr.qjwin.qj_customitems.Listener.ItemsManager;
+import fr.qjwin.qj_customitems.Managers.ItemsManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -179,6 +179,9 @@ public class GiveCommand implements CommandExecutor {
                 player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_RAINBOW);
                 player_instance.getInventory().addItem(ItemsManager.Hat_Dandy_GLASS);
                 player_instance.getInventory().addItem(ItemsManager.Hat_Squid);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_TrashCan")){
+                player_instance.getInventory().addItem(ItemsManager.TrashCan);
             }
 
         } else {

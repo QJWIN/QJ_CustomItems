@@ -3,7 +3,7 @@ Class Name : ItemsManager
 From Package : fr.qjwin.qj_customitems.Listener
 Made by : QJWIN
 */
-package fr.qjwin.qj_customitems.Listener;
+package fr.qjwin.qj_customitems.Managers;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Color;
@@ -97,6 +97,8 @@ public class ItemsManager {
     public static ItemStack Hat_Dandy_GLASS;
     public static ItemStack Hat_Squid;
 
+    public static ItemStack TrashCan;
+
     public static void init (){
         CreateGrapplingHook();
         CreateTeleportSword();
@@ -142,6 +144,7 @@ public class ItemsManager {
         CreateHat_Dandy_RAINBOW();
         CreateHat_Dandy_GLASS();
         CreateHat_Squid();
+        CreateTrashCan();
     }
 
     private static void CreateGrapplingHook(){
@@ -1304,6 +1307,32 @@ public class ItemsManager {
         Hat_Squid_Meta.setCustomModelData(2);
         Hat_Squid_Stack.setItemMeta(Hat_Squid_Meta);
         Hat_Squid = Hat_Squid_Stack;
+    }
+
+    private static void CreateTrashCan() {
+        ItemStack TrashCan_Stack = new ItemStack(Material.CAULDRON, 1);
+        ItemMeta TrashCan_Meta = TrashCan_Stack.getItemMeta();
+        Objects.requireNonNull(TrashCan_Meta).setDisplayName("§c★ §6Poubelle §c★");
+        List<String> TrashCan_Lore = new ArrayList<>();
+        TrashCan_Lore.add(Separator_Color + "§m--------------------------------");
+        TrashCan_Lore.add(Title_Color + "Description :");
+        TrashCan_Lore.add("§fInventé par le grand §bQJWIN");
+        TrashCan_Lore.add("§fla poubelle est un item très");
+        TrashCan_Lore.add("§futile pour supprimer vos items.");
+        TrashCan_Lore.add(Separator_Color + "§m--------------------------------");
+        TrashCan_Lore.add(Title_Color + "Qualité : " + Rarity_Commun);
+        TrashCan_Lore.add(Title_Color + "Pouvoir : §cPoubelle");
+        TrashCan_Lore.add(Title_Color + "Effet -> §fclique &adroit §f:");
+        TrashCan_Lore.add("§fOuvre le menu de la poubelle");
+        TrashCan_Lore.add("§fpuis détruit les items quand");
+        TrashCan_Lore.add("§fle menu ce ferme !");
+        TrashCan_Lore.add(Separator_Color + "§m--------------------------------");
+        TrashCan_Lore.add(Title_Color + "ID : §fPBL_01");
+        TrashCan_Meta.setLore(TrashCan_Lore);
+        TrashCan_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        TrashCan_Meta.addItemFlags(HIDE_ENCHANTS);
+        TrashCan_Stack.setItemMeta(TrashCan_Meta);
+        TrashCan = TrashCan_Stack;
     }
 
 
