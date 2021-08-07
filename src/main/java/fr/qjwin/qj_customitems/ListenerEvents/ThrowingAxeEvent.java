@@ -46,7 +46,7 @@ public class ThrowingAxeEvent implements Listener {
                 as.setVisible(false);
                 as.setSmall(true);
                 as.setMarker(true);
-                as.setItemInHand(new ItemStack(Material.DIAMOND_AXE));
+                as.setItemInHand(new ItemStack(ItemsManager.ThrowingAxe));
                 as.setRightArmPose(new EulerAngle(Math.toRadians(90), Math.toRadians(0),Math.toRadians(0)));
 
                 player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount() - 1);
