@@ -1,14 +1,17 @@
 package fr.qjwin.qj_customitems;
 
-import fr.qjwin.qj_customitems.Commands.GiveCommand;
+import fr.qjwin.qj_customitems.Managers.CommandManager;
 import fr.qjwin.qj_customitems.Extras.*;
 import fr.qjwin.qj_customitems.ListenerEvents.*;
 import fr.qjwin.qj_customitems.Managers.CooldownManager;
 import fr.qjwin.qj_customitems.Managers.CraftsManager;
 import fr.qjwin.qj_customitems.Managers.ItemsManager;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 
 public final class Main extends JavaPlugin {
@@ -44,59 +47,63 @@ public final class Main extends JavaPlugin {
 
         ItemsManager.init();
         CraftsManager.init();
-        getServer().getLogger().info("QJ_CustomItems >>> initialize Manager 2/2 ==> OK");
+        TrashCanEvent.Update_Trashcan();
+        getServer().getLogger().info("QJ_CustomItems >>> initialize Manager 3/3 ==> OK");
 
-        Objects.requireNonNull(getinstance.getCommand("Give_GrapplingHook")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_TeleportSword")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_ServerGift")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_ExplosiveBow")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_InfiniteWaterBucket")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_InfiniteLavaBucket")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_MachineGunBow")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_MultiBreakPickaxe")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_CresusPickaxe")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Boomerang")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(getinstance.getCommand("Give_GrapplingHook")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_TeleportSword")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_ServerGift")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_ExplosiveBow")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_InfiniteWaterBucket")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_InfiniteLavaBucket")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_MachineGunBow")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_MultiBreakPickaxe")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_CresusPickaxe")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Boomerang")).setExecutor(new CommandManager());
 
-        Objects.requireNonNull(getinstance.getCommand("Give_HomingBow")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_ThrowingAxe")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_UndeadSword")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Dynamite")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_LightingSword")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_AutoSmeltPickaxe")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_FireBall")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Grenade")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_HermesShoes")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Landmine")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(getinstance.getCommand("Give_HomingBow")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_ThrowingAxe")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_UndeadSword")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Dynamite")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_LightingSword")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_AutoSmeltPickaxe")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_FireBall")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Grenade")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_HermesShoes")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Landmine")).setExecutor(new CommandManager());
 
-        Objects.requireNonNull(getinstance.getCommand("Give_InfiniteEmptyBucket")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_haste_1")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_haste_2")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_haste_3")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_luck_1")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_luck_2")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_luck_3")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_Resistance_1")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_Beauty_1")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_Saturation_1")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(getinstance.getCommand("Give_InfiniteEmptyBucket")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_haste_1")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_haste_2")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_haste_3")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_luck_1")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_luck_2")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_luck_3")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_Resistance_1")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_Beauty_1")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_Saturation_1")).setExecutor(new CommandManager());
 
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_Absorption_1")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potion_HealBoost_1")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Potions")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Farmer")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Arrow")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Fes")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Indian")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_RED")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_LBLUE")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_YELLOW")).setExecutor(new GiveCommand());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_Absorption_1")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potion_HealBoost_1")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Potions")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Farmer")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Arrow")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Fes")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Indian")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_RED")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_LBLUE")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_YELLOW")).setExecutor(new CommandManager());
 
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_LIME")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_RAINBOW")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_GLASS")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Squid")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_Hats")).setExecutor(new GiveCommand());
-        Objects.requireNonNull(getinstance.getCommand("Give_TrashCan")).setExecutor(new GiveCommand());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 46/46 ==> OK");
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_LIME")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_RAINBOW")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Dandy_GLASS")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hat_Squid")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_Hats")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("Give_TrashCan")).setExecutor(new CommandManager());
+
+        Objects.requireNonNull(getinstance.getCommand("sethome")).setExecutor(new CommandManager());
+        Objects.requireNonNull(getinstance.getCommand("home")).setExecutor(new CommandManager());
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 48/48 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ServerGiftEvent(), getinstance);
         getServer().getPluginManager().registerEvents(new GrapplingEvent(), getinstance);
@@ -144,8 +151,30 @@ public final class Main extends JavaPlugin {
 
 
     public void Load_config(){
+
         this.getConfig().options().copyDefaults(true);
         this.saveDefaultConfig();
+
+        final File file_homes = new File(Main.getinstance.getDataFolder(), "Ressources/homes.yml");
+        if (!file_homes.exists()) {
+            final YamlConfiguration config = YamlConfiguration.loadConfiguration(file_homes);
+            try {
+                config.save(file_homes);
+            } catch (IOException errorArray) {
+                errorArray.printStackTrace();
+            }
+        }
+
+        final File file_trashcan = new File(Main.getinstance.getDataFolder(), "Ressources/trashcan.yml");
+        if (!file_trashcan.exists()) {
+            final YamlConfiguration config = YamlConfiguration.loadConfiguration(file_trashcan);
+            try {
+                config.save(file_trashcan);
+            } catch (IOException errorArray) {
+                errorArray.printStackTrace();
+            }
+        }
+
     }
 
     public static void Generate_log(String message) {

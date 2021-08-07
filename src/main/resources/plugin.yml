@@ -1,5 +1,5 @@
 name: QJ_CustomItems
-version: 1.2.3
+version: 1.3.0
 main: fr.qjwin.qj_customitems.Main
 api-version: 1.16
 authors: [ QJWIN ]
@@ -10,9 +10,18 @@ permissions:
     description: Lets the player get spawner.
     default: true
   trashcan.use:
-    description: Lets the use trashcan.
+    description: Lets the player use trashcan.
+    default: true
+  home.global:
+    description: Lets the use setthome and home.
     default: true
 commands:
+  sethome:
+    description: set a home for the player.
+    usage: /<command>
+  home:
+    description: teleport the player to is home.
+    usage: /<command>
   Give_GrapplingHook:
     description: give a grappling hook to the player.
     usage: /<command>

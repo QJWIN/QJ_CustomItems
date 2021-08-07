@@ -17,7 +17,7 @@
 # QJ_CustomItems Plugin CONFIG file
 #------------------------------------------------------------------------------------------------
 # version of the config
-Version: 1.2.3
+Version: 1.3.0
 #------------------------------------------------------------------------------------------------
 Main_Options:
   #------------------------------------------------------------------------------------------------
@@ -25,7 +25,10 @@ Main_Options:
   Prefix_String: "§6QJ_C§3ustom§6I§3tems §6- "
   #------------------------------------------------------------------------------------------------
   # default activation of message onjoin and onquit in the chat
-  enable_welcome_message: false
+  enable_welcome_message: true
+  #------------------------------------------------------------------------------------------------
+  # default activation of message onjoin and onquit in the chat
+  enable_player_home: true
   #------------------------------------------------------------------------------------------------
   # default options for silkspawner
   Silkspawner:

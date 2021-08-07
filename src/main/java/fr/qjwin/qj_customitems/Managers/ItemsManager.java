@@ -1322,7 +1322,7 @@ public class ItemsManager {
         TrashCan_Lore.add(Separator_Color + "§m--------------------------------");
         TrashCan_Lore.add(Title_Color + "Qualité : " + Rarity_Commun);
         TrashCan_Lore.add(Title_Color + "Pouvoir : §cPoubelle");
-        TrashCan_Lore.add(Title_Color + "Effet -> §fclique &adroit §f:");
+        TrashCan_Lore.add(Title_Color + "Effet -> §fclique §adroit §f:");
         TrashCan_Lore.add("§fOuvre le menu de la poubelle");
         TrashCan_Lore.add("§fpuis détruit les items quand");
         TrashCan_Lore.add("§fle menu ce ferme !");
