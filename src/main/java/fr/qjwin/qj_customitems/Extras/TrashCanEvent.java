@@ -59,7 +59,6 @@ public class TrashCanEvent implements Listener {
 
     public static void Update_Trashcan() {
 
-        // create holo from file
         final File file_trashcan = new File(Main.getinstance.getDataFolder(), "/Ressources/trashcan.yml");
         final YamlConfiguration config = YamlConfiguration.loadConfiguration(file_trashcan);
         final String parsing_key = "players";

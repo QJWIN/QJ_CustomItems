@@ -98,6 +98,7 @@ public class ItemsManager {
     public static ItemStack Hat_Squid;
 
     public static ItemStack TrashCan;
+    public static ItemStack Backpack;
 
     public static void init (){
         CreateGrapplingHook();
@@ -145,6 +146,7 @@ public class ItemsManager {
         CreateHat_Dandy_GLASS();
         CreateHat_Squid();
         CreateTrashCan();
+        CreateBackpack();
     }
 
     private static void CreateGrapplingHook(){
@@ -1335,6 +1337,31 @@ public class ItemsManager {
         TrashCan = TrashCan_Stack;
     }
 
+    private static void CreateBackpack() {
+        ItemStack Backpack_Stack = new ItemStack(Material.STONE_HOE, 1);
+        ItemMeta Backpack_Meta = Backpack_Stack.getItemMeta();
+        Objects.requireNonNull(Backpack_Meta).setDisplayName("§c★ §6Sac à dos §c★");
+        List<String> Backpack_Lore = new ArrayList<>();
+        Backpack_Lore.add(Separator_Color + "§m--------------------------------");
+        Backpack_Lore.add(Title_Color + "Description :");
+        Backpack_Lore.add("§fInventé par le grand §bQJWIN");
+        Backpack_Lore.add("§fCe sac vous serviras pour");
+        Backpack_Lore.add("§fagrandir vos poches.");
+        Backpack_Lore.add(Separator_Color + "§m--------------------------------");
+        Backpack_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+        Backpack_Lore.add(Title_Color + "Pouvoir : §cSac  à dos");
+        Backpack_Lore.add(Title_Color + "Effet -> §fclique §adroit §f:");
+        Backpack_Lore.add("§fOuvre le sac à dos.");
+        Backpack_Lore.add(Separator_Color + "§m--------------------------------");
+        Backpack_Lore.add(Title_Color + "ID : §fBPK_01");
+        Backpack_Lore.add(Title_Color + "UBID :§f " + BackpackManager.QJRandomID(8));
+        Backpack_Meta.setLore(Backpack_Lore);
+        Backpack_Meta.setCustomModelData(BackpackManager.GetCustomSmallTexture());
+        Backpack_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        Backpack_Meta.addItemFlags(HIDE_ENCHANTS);
+        Backpack_Stack.setItemMeta(Backpack_Meta);
+        Backpack = Backpack_Stack;
+    }
 
 }
 

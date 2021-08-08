@@ -8,7 +8,6 @@ package fr.qjwin.qj_customitems.ListenerEvents;
 import fr.qjwin.qj_customitems.Main;
 import fr.qjwin.qj_customitems.Managers.ItemsManager;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

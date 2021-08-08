@@ -8,18 +8,27 @@ package fr.qjwin.qj_customitems.Managers;
 import fr.qjwin.qj_customitems.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+
+import static fr.qjwin.qj_customitems.Managers.ItemsManager.*;
+import static org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS;
 
 @SuppressWarnings("NullableProblems")
 public class CommandManager implements CommandExecutor {
@@ -192,6 +201,34 @@ public class CommandManager implements CommandExecutor {
             }
             if (cmd.getName().equalsIgnoreCase("Give_TrashCan")) {
                 player_instance.getInventory().addItem(ItemsManager.TrashCan);
+            }
+            if (cmd.getName().equalsIgnoreCase("Give_Backpack")) {
+
+                ItemStack Backpack_Stack = new ItemStack(Material.STONE_HOE, 1);
+                ItemMeta Backpack_Meta = Backpack_Stack.getItemMeta();
+                Objects.requireNonNull(Backpack_Meta).setDisplayName("§c★ §6Sac à dos §c★");
+                List<String> Backpack_Lore = new ArrayList<>();
+                Backpack_Lore.add(Separator_Color + "§m--------------------------------");
+                Backpack_Lore.add(Title_Color + "Description :");
+                Backpack_Lore.add("§fInventé par le grand §bQJWIN");
+                Backpack_Lore.add("§fCe sac vous serviras pour");
+                Backpack_Lore.add("§fagrandir vos poches.");
+                Backpack_Lore.add(Separator_Color + "§m--------------------------------");
+                Backpack_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+                Backpack_Lore.add(Title_Color + "Pouvoir : §cSac  à dos");
+                Backpack_Lore.add(Title_Color + "Effet -> §fclique §adroit §f:");
+                Backpack_Lore.add("§fOuvre le sac à dos.");
+                Backpack_Lore.add(Separator_Color + "§m--------------------------------");
+                Backpack_Lore.add(Title_Color + "ID : §fBPK_01");
+                Backpack_Lore.add(Title_Color + "UBID :§f " + BackpackManager.QJRandomID(8));
+                Backpack_Meta.setLore(Backpack_Lore);
+                Backpack_Meta.setCustomModelData(BackpackManager.GetCustomSmallTexture());
+                Backpack_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+                Backpack_Meta.addItemFlags(HIDE_ENCHANTS);
+                Backpack_Stack.setItemMeta(Backpack_Meta);
+
+                player_instance.getInventory().addItem(Backpack_Stack);
+
             }
         // non OP COMMANDS
         } else {

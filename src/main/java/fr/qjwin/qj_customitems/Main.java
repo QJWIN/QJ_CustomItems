@@ -103,7 +103,8 @@ public final class Main extends JavaPlugin {
 
         Objects.requireNonNull(getinstance.getCommand("sethome")).setExecutor(new CommandManager());
         Objects.requireNonNull(getinstance.getCommand("home")).setExecutor(new CommandManager());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 48/48 ==> OK");
+        Objects.requireNonNull(getinstance.getCommand("Give_Backpack")).setExecutor(new CommandManager());
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 49/49 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ServerGiftEvent(), getinstance);
         getServer().getPluginManager().registerEvents(new GrapplingEvent(), getinstance);
@@ -131,7 +132,8 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AntiPlaceHatEvent(getinstance), getinstance);
         getServer().getPluginManager().registerEvents(new PlayerBeheadingEvent(getinstance), getinstance);
         getServer().getPluginManager().registerEvents(new PlayerJoinQuitMessageEvent(getinstance), getinstance);
-        getServer().getLogger().info("QJ_CustomItems >>> initialize events 24/24 ==> OK");
+        getServer().getPluginManager().registerEvents(new BackpackEvent(), getinstance);
+        getServer().getLogger().info("QJ_CustomItems >>> initialize events 25/25 ==> OK");
 
         CooldownManager.setupCooldown_grappling();
         CooldownManager.setupCooldown_teleportsword();
@@ -144,6 +146,7 @@ public final class Main extends JavaPlugin {
 
     }
 
+
     @Override
     public void onDisable() {
         getServer().getLogger().info("QJ_CustomItems >>> plugin disabled correctly");
@@ -151,10 +154,8 @@ public final class Main extends JavaPlugin {
 
 
     public void Load_config(){
-
         this.getConfig().options().copyDefaults(true);
         this.saveDefaultConfig();
-
         final File file_homes = new File(Main.getinstance.getDataFolder(), "Ressources/homes.yml");
         if (!file_homes.exists()) {
             final YamlConfiguration config = YamlConfiguration.loadConfiguration(file_homes);
@@ -164,7 +165,6 @@ public final class Main extends JavaPlugin {
                 errorArray.printStackTrace();
             }
         }
-
         final File file_trashcan = new File(Main.getinstance.getDataFolder(), "Ressources/trashcan.yml");
         if (!file_trashcan.exists()) {
             final YamlConfiguration config = YamlConfiguration.loadConfiguration(file_trashcan);
@@ -174,7 +174,15 @@ public final class Main extends JavaPlugin {
                 errorArray.printStackTrace();
             }
         }
-
+        final File file_backpack = new File(Main.getinstance.getDataFolder(), "Ressources/backpack.yml");
+        if (!file_backpack.exists()) {
+            final YamlConfiguration config = YamlConfiguration.loadConfiguration(file_backpack);
+            try {
+                config.save(file_backpack);
+            } catch (IOException errorArray) {
+                errorArray.printStackTrace();
+            }
+        }
     }
 
     public static void Generate_log(String message) {
