@@ -1,5 +1,5 @@
 name: QJ_CustomItems
-version: 1.4.0
+version: 1.4.1
 main: fr.qjwin.qj_customitems.Main
 api-version: 1.16
 authors: [ QJWIN ]
@@ -7,13 +7,16 @@ softdepend: [HolographicDisplays]
 description: Personal plugin for items with specials effects
 permissions:
   silkspawner.allowdrop:
-    description: Lets the player get spawner.
+    description: Lets the player use spawner system.
     default: true
   trashcan.use:
-    description: Lets the player use trashcan.
+    description: Lets the player use trashcan system.
     default: true
   home.global:
-    description: Lets the use setthome and home.
+    description: Lets the player use setthome and home system.
+    default: true
+  backpacks.use:
+    description: Lets the player use backpacks system.
     default: true
 commands:
   Give_Backpack:
