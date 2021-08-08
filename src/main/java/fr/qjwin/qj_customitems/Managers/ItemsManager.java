@@ -1359,6 +1359,7 @@ public class ItemsManager {
         Backpack_Meta.setCustomModelData(BackpackManager.GetCustomSmallTexture());
         Backpack_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
         Backpack_Meta.addItemFlags(HIDE_ENCHANTS);
+        Backpack_Meta.addItemFlags(HIDE_ATTRIBUTES);
         Backpack_Stack.setItemMeta(Backpack_Meta);
         Backpack = Backpack_Stack;
     }

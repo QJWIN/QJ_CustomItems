@@ -13,6 +13,7 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
@@ -36,12 +37,57 @@ public class CommandManager implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-        if(!(sender instanceof Player)) {
-            sender.sendMessage("Only player can send this command !");
+        if (sender instanceof ConsoleCommandSender) {
+            if (cmd.getName().equalsIgnoreCase("Give_Backpack")) {
+
+                if (args[0] != null) {
+                    if (sender.hasPermission("op")) {
+                        String Target = args[0];
+
+                        Player playerTarget = Main.getinstance.getServer().getPlayer(Target);
+
+                        ItemStack Backpack_Stack = new ItemStack(Material.STONE_HOE, 1);
+                        ItemMeta Backpack_Meta = Backpack_Stack.getItemMeta();
+                        Objects.requireNonNull(Backpack_Meta).setDisplayName("§c★ §6Sac à dos §c★");
+                        List<String> Backpack_Lore = new ArrayList<>();
+                        Backpack_Lore.add(Separator_Color + "§m--------------------------------");
+                        Backpack_Lore.add(Title_Color + "Description :");
+                        Backpack_Lore.add("§fInventé par le grand §bQJWIN");
+                        Backpack_Lore.add("§fCe sac vous serviras pour");
+                        Backpack_Lore.add("§fagrandir vos poches.");
+                        Backpack_Lore.add(Separator_Color + "§m--------------------------------");
+                        Backpack_Lore.add(Title_Color + "Qualité : " + Rarity_Rare);
+                        Backpack_Lore.add(Title_Color + "Pouvoir : §cSac  à dos");
+                        Backpack_Lore.add(Title_Color + "Effet -> §fclique §adroit §f:");
+                        Backpack_Lore.add("§fOuvre le sac à dos.");
+                        Backpack_Lore.add(Separator_Color + "§m--------------------------------");
+                        Backpack_Lore.add(Title_Color + "ID : §fBPK_01");
+                        Backpack_Lore.add(Title_Color + "UBID :§f " + BackpackManager.QJRandomID(8));
+                        Backpack_Meta.setLore(Backpack_Lore);
+                        Backpack_Meta.setCustomModelData(BackpackManager.GetCustomSmallTexture());
+                        Backpack_Meta.addEnchant(Enchantment.DURABILITY, 3, false);
+                        Backpack_Meta.addItemFlags(HIDE_ENCHANTS);
+                        Backpack_Stack.setItemMeta(Backpack_Meta);
+
+                        Objects.requireNonNull(playerTarget).getInventory().addItem(Backpack_Stack);
+                    }
+                } else {
+                    sender.sendMessage("Need a player argument !");
+                }
+
+            }
+
+        }
+
+        if (!(sender instanceof Player) && !(sender instanceof ConsoleCommandSender)) {
+            sender.sendMessage("Only player or console can send this command !");
             return true;
         }
 
+        if (args[0] == null) {
+
         Player player_instance = (Player) sender;
+
         // command under op need's
         if (player_instance.hasPermission("op")) {
             if (cmd.getName().equalsIgnoreCase("Give_GrapplingHook")) {
@@ -230,7 +276,7 @@ public class CommandManager implements CommandExecutor {
                 player_instance.getInventory().addItem(Backpack_Stack);
 
             }
-        // non OP COMMANDS
+            // non OP COMMANDS
         } else {
             player_instance.sendMessage("Vous n'avez pas la permission d'utilisé cette commande ! Seulment les opérateurs peuvent !");
         }
@@ -289,6 +335,8 @@ public class CommandManager implements CommandExecutor {
 
         } else {
             player_instance.sendMessage("L'option 'enable_player_home' est désactivé ! Les commandes /sethome, /home sont désactivée.");
+        }
+
         }
 
     return true;
