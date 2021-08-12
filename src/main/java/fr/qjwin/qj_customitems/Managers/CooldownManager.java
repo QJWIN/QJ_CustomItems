@@ -15,6 +15,7 @@ public class CooldownManager {
     public static HashMap<UUID, Double> cooldowns_grappin;
     public static HashMap<UUID, Double> cooldowns_teleportsword;
     public static HashMap<UUID, Double> cooldowns_lightingsword;
+    public static HashMap<UUID, Double> cooldowns_chaosscepter;
 
     public static void setupCooldown_grappling(){
         cooldowns_grappin = new HashMap<>();
@@ -24,6 +25,9 @@ public class CooldownManager {
     }
     public static void setupCooldown_lightingsword(){
         cooldowns_lightingsword = new HashMap<>();
+    }
+    public static void setupCooldown_chaosscepter(){
+        cooldowns_chaosscepter = new HashMap<>();
     }
 
     public static void setCooldown_grappling(Player player, int seconds) {
@@ -38,6 +42,10 @@ public class CooldownManager {
         double delay = System.currentTimeMillis() + (seconds * 1000L);
         cooldowns_lightingsword.put(player.getUniqueId(), delay);
     }
+    public static void setCooldown_chaosscepter(Player player, int seconds) {
+        double delay = System.currentTimeMillis() + (seconds * 1000L);
+        cooldowns_chaosscepter.put(player.getUniqueId(), delay);
+    }
 
     public static boolean checkCooldown_grappling(Player player) {
         return !cooldowns_grappin.containsKey(player.getUniqueId()) || cooldowns_grappin.get(player.getUniqueId()) <= System.currentTimeMillis();
@@ -48,7 +56,9 @@ public class CooldownManager {
     public static boolean checkCooldown_lightingsword(Player player) {
         return !cooldowns_lightingsword.containsKey(player.getUniqueId()) || cooldowns_lightingsword.get(player.getUniqueId()) <= System.currentTimeMillis();
     }
-
+    public static boolean checkCooldown_chaosscepter(Player player) {
+        return !cooldowns_chaosscepter.containsKey(player.getUniqueId()) || cooldowns_chaosscepter.get(player.getUniqueId()) <= System.currentTimeMillis();
+    }
 
 
 }

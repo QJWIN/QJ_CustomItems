@@ -102,35 +102,40 @@ public class BackpackEvent implements Listener {
                     FileConfiguration backpacks_config = YamlConfiguration.loadConfiguration(backpacksFile);
 
                     int backpack_smallsize = 9;
-                    final String backpackTitle = "Backpack";
+                    String backpackTitle = "§3Backpack";
 
-                    Inventory backpack_inventoryE;
+                    Inventory backpack_inventoryE, backpack_inventoryZ, backpack_inventoryR;
 
                     if (backpacks_config.contains(parsing_key + "." + backpack_UBID)) {
 
                         String Base64InventoryD = backpacks_config.getString(parsing_key + "." + backpack_UBID);
 
                         try {
-
+                            backpackTitle = backpackTitle + " ID° §d" + backpack_UBID;
                             backpack_inventoryE = BackpackManager.base64ToInv(Base64InventoryD);
+                            backpack_inventoryZ = Bukkit.getServer().createInventory(null, backpack_smallsize, backpackTitle);
+                            backpack_inventoryZ.setContents(backpack_inventoryE.getContents());
+                            backpack_inventoryR = backpack_inventoryZ;
                         } catch (IOException e) {
-                            Bukkit.getServer().createInventory(null, backpack_smallsize, backpackTitle);
-                            throw new IOException("Unable to convert inventory to Base64.", e);
+                            backpack_inventoryE = Bukkit.getServer().createInventory(null, backpack_smallsize, backpackTitle);
+                            backpack_inventoryR = backpack_inventoryE;
+                            throw new IOException("§cErreur, impossible  de convertir l'inventaire en Base64.", e);
                         }
 
 
                     } else {
-
+                        backpackTitle = backpackTitle + " ID° §d" + backpack_UBID;
                         backpack_inventoryE = Bukkit.getServer().createInventory(null, backpack_smallsize, backpackTitle);
                         String inventoryString = BackpackManager.invToBase64(backpack_inventoryE);
                         backpacks_config.set(parsing_key + "." + backpack_UBID, inventoryString);
                         BackpackManager.file_saveYML(backpacksFile, backpacks_config);
+                        backpack_inventoryR = backpack_inventoryE;
                     }
 
-                    player.openInventory(backpack_inventoryE);
+                    player.openInventory(backpack_inventoryR);
 
                 } else {
-                    player.sendMessage(pluginprefix + "Vous n'avez pas la permission d'ouvrir un sac.");
+                    player.sendMessage(pluginprefix + "§cVous n'avez pas la permission d'ouvrir un sac.");
                     eventArray.setCancelled(true);
                 }
             }

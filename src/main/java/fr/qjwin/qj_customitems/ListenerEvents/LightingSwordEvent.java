@@ -23,7 +23,6 @@ public class LightingSwordEvent implements Listener {
 
     @EventHandler
     public void onHit(EntityDamageByEntityEvent eventArray) {
-        int getMillisToSeconds;
         if (eventArray.getDamager() instanceof Player && eventArray.getEntity() instanceof LivingEntity) {
             Player player = (Player) eventArray.getDamager();
             LivingEntity livingEntity = (LivingEntity) eventArray.getEntity();
@@ -45,6 +44,8 @@ public class LightingSwordEvent implements Listener {
 
                 if (CooldownManager.checkCooldown_lightingsword(eventArray.getPlayer())) {
 
+
+
                     for (Entity entity : eventArray.getPlayer().getNearbyEntities(12, 12, 12)) {
                         if (entity instanceof LivingEntity) {
                             LivingEntity livingEntity = (LivingEntity) entity;
@@ -53,6 +54,8 @@ public class LightingSwordEvent implements Listener {
                             livingEntity.damage(damage);
                         }
                     }
+
+
 
                     CooldownManager.setCooldown_lightingsword(player, 15);
                 } else {

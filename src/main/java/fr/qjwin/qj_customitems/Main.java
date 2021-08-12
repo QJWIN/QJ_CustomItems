@@ -1,11 +1,8 @@
 package fr.qjwin.qj_customitems;
 
-import fr.qjwin.qj_customitems.Managers.CommandManager;
+import fr.qjwin.qj_customitems.Managers.*;
 import fr.qjwin.qj_customitems.Extras.*;
 import fr.qjwin.qj_customitems.ListenerEvents.*;
-import fr.qjwin.qj_customitems.Managers.CooldownManager;
-import fr.qjwin.qj_customitems.Managers.CraftsManager;
-import fr.qjwin.qj_customitems.Managers.ItemsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -46,9 +43,11 @@ public final class Main extends JavaPlugin {
         getServer().getLogger().info("QJ_CustomItems >>> load config file 1/1 ==> OK");
 
         ItemsManager.init();
+        PotionsManager.init();
+        HatsManager.init();
         CraftsManager.init();
         TrashCanEvent.Update_Trashcan();
-        getServer().getLogger().info("QJ_CustomItems >>> initialize Manager 3/3 ==> OK");
+        getServer().getLogger().info("QJ_CustomItems >>> initialize Manager 5/5 ==> OK");
 
         Objects.requireNonNull(getinstance.getCommand("Give_GrapplingHook")).setExecutor(new CommandManager());
         Objects.requireNonNull(getinstance.getCommand("Give_TeleportSword")).setExecutor(new CommandManager());
@@ -104,7 +103,8 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(getinstance.getCommand("sethome")).setExecutor(new CommandManager());
         Objects.requireNonNull(getinstance.getCommand("home")).setExecutor(new CommandManager());
         Objects.requireNonNull(getinstance.getCommand("Give_Backpack")).setExecutor(new CommandManager());
-        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 49/49 ==> OK");
+        Objects.requireNonNull(getinstance.getCommand("Give_ChaosScepter")).setExecutor(new CommandManager());
+        getServer().getLogger().info("QJ_CustomItems >>> initialize commands 50/50 ==> OK");
 
         getServer().getPluginManager().registerEvents(new ServerGiftEvent(), getinstance);
         getServer().getPluginManager().registerEvents(new GrapplingEvent(), getinstance);
@@ -133,12 +133,14 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerBeheadingEvent(getinstance), getinstance);
         getServer().getPluginManager().registerEvents(new PlayerJoinQuitMessageEvent(getinstance), getinstance);
         getServer().getPluginManager().registerEvents(new BackpackEvent(), getinstance);
-        getServer().getLogger().info("QJ_CustomItems >>> initialize events 25/25 ==> OK");
+        getServer().getPluginManager().registerEvents(new ChaosScepterEvent(getinstance), getinstance);
+        getServer().getLogger().info("QJ_CustomItems >>> initialize events 26/26 ==> OK");
 
         CooldownManager.setupCooldown_grappling();
         CooldownManager.setupCooldown_teleportsword();
         CooldownManager.setupCooldown_lightingsword();
-        getServer().getLogger().info("QJ_CustomItems >>> load cooldown in memory 3/3 ==> OK");
+        CooldownManager.setupCooldown_chaosscepter();
+        getServer().getLogger().info("QJ_CustomItems >>> load cooldown in memory 4/4 ==> OK");
 
         getServer().getLogger().info("QJ_CustomItems >>> --------------------------------------");
         getServer().getLogger().info("QJ_CustomItems >>> plugin enabled correctly");
