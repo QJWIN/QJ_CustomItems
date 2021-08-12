@@ -119,7 +119,7 @@ public class BackpackEvent implements Listener {
                         } catch (IOException e) {
                             backpack_inventoryE = Bukkit.getServer().createInventory(null, backpack_smallsize, backpackTitle);
                             backpack_inventoryR = backpack_inventoryE;
-                            throw new IOException("§cErreur, impossible  de convertir l'inventaire en Base64.", e);
+                            throw new IOException("§cErreur, impossible  de convertir l'inventaire en Base64." + backpack_inventoryR, e);
                         }
 
 

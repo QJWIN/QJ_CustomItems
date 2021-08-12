@@ -280,7 +280,7 @@ public class CommandManager implements CommandExecutor {
                     }
                     // non OP COMMANDS
                 } else {
-                    player_instance.sendMessage("Vous n'avez pas la permission d'utilisé cette commande ! Seulment les opérateurs peuvent !");
+                    player_instance.sendMessage("§cVous n'avez pas la permission d'utilisé cette commande ! Seulment les opérateurs peuvent !");
                 }
 
                 if (Main.getinstance.getConfig().getBoolean("Main_Options.enable_player_home")) {

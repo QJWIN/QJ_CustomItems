@@ -3,7 +3,6 @@ package fr.qjwin.qj_customitems;
 import fr.qjwin.qj_customitems.Managers.*;
 import fr.qjwin.qj_customitems.Extras.*;
 import fr.qjwin.qj_customitems.ListenerEvents.*;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,24 +17,6 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         getinstance = this;
-
-        getServer().getLogger().info("QJ_CustomItems >>> --------------------------------------");
-        getServer().getLogger().info("QJ_CustomItems >>> Hooking plugin ...");
-
-        if (!Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays")) {
-            getServer().getLogger().severe("QJ_CustomItems >> *** HolographicDisplays is not installed or enabled ! ***");
-            getServer().getLogger().severe("QJ_CustomItems >> *** this plugin will be disabled ! ***");
-            getServer().getLogger().info("QJ_CustomItems >>> --------------------------------------");
-            getServer().getLogger().info("QJ_CustomItems >>> Major error disabling ...");
-            getServer().getLogger().info("QJ_CustomItems >>> --------------------------------------");
-            getinstance.setEnabled(false);
-            return;
-        }
-        getServer().getLogger().info("QJ_CustomItems >>> HolographicDisplays detected !");
-        boolean useHolographicDisplays = Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays");
-        getServer().getLogger().info("QJ_CustomItems >>> HolographicDisplays running : " + useHolographicDisplays);
-        getServer().getLogger().info("QJ_CustomItems >>> HolographicDisplays correctly injected in to memory.");
-        getServer().getLogger().info("QJ_CustomItems >>> Hooking plugin 1/1 ==> OK");
         getServer().getLogger().info("QJ_CustomItems >>> --------------------------------------");
         getServer().getLogger().info("QJ_CustomItems >>> starting enabling plugin ...");
         getServer().getLogger().info("QJ_CustomItems >>> --------------------------------------");
@@ -46,8 +27,7 @@ public final class Main extends JavaPlugin {
         PotionsManager.init();
         HatsManager.init();
         CraftsManager.init();
-        TrashCanEvent.Update_Trashcan();
-        getServer().getLogger().info("QJ_CustomItems >>> initialize Manager 5/5 ==> OK");
+        getServer().getLogger().info("QJ_CustomItems >>> initialize Manager 4/4 ==> OK");
 
         Objects.requireNonNull(getinstance.getCommand("Give_GrapplingHook")).setExecutor(new CommandManager());
         Objects.requireNonNull(getinstance.getCommand("Give_TeleportSword")).setExecutor(new CommandManager());
@@ -167,15 +147,7 @@ public final class Main extends JavaPlugin {
                 errorArray.printStackTrace();
             }
         }
-        final File file_trashcan = new File(Main.getinstance.getDataFolder(), "Ressources/trashcan.yml");
-        if (!file_trashcan.exists()) {
-            final YamlConfiguration config = YamlConfiguration.loadConfiguration(file_trashcan);
-            try {
-                config.save(file_trashcan);
-            } catch (IOException errorArray) {
-                errorArray.printStackTrace();
-            }
-        }
+
         final File file_backpack = new File(Main.getinstance.getDataFolder(), "Ressources/backpack.yml");
         if (!file_backpack.exists()) {
             final YamlConfiguration config = YamlConfiguration.loadConfiguration(file_backpack);
